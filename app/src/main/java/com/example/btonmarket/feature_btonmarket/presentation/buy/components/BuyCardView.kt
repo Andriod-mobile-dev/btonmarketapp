@@ -1,22 +1,22 @@
 package com.example.btonmarket.feature_btonmarket.presentation.buy.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 import com.example.btonmarket.R
+import com.example.btonmarket.core.presentation.components.ImageThumbnail
+import com.example.btonmarket.feature_btonmarket.presentation.buy.BuyScreen
 
 @Composable
 fun BuyCardView(itemName: String,
@@ -34,7 +34,6 @@ fun BuyCardView(itemName: String,
             .clickable { },
         elevation = 10.dp
     ) {
-
         Column(
             modifier = Modifier
                 .padding(15.dp)
@@ -42,10 +41,13 @@ fun BuyCardView(itemName: String,
             ,
             //horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Row( modifier = Modifier.fillMaxWidth()){
-                OnSaleItemImage()
-                //Text(text = "Image Goes here")
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                ImageThumbnail(R.drawable.ic_launcher_background)
             }
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth(),
@@ -125,18 +127,18 @@ fun SellerDetailColumn(seller: String){
     }
 }
 
+//@Composable
+//fun ImageThumbnail(resourceimageID: Int){
+//    Image(painter = painterResource(id = resourceimageID),
+//        contentDescription = "On sell item",
+//        modifier = Modifier
+//            .size(100.dp)
+//            .padding(20.dp)
+//    )
+//}
+
 @Composable
-fun OnSaleItemImage(){
-    // resourceimageID: R.id
-    Column(
-        modifier= Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Image(painter = painterResource(id = R.drawable.ic_launcher_background),
-            contentDescription = "On sell item",
-            modifier = Modifier
-                .size(100.dp)
-                .padding(20.dp)
-        )
-    }
+@Preview
+fun BuyScreenPreview(){
+    BuyScreen()
 }
