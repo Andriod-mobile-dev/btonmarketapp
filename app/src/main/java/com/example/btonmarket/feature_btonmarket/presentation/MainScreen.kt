@@ -1,4 +1,4 @@
-package com.example.btonmarket
+package com.example.btonmarket.feature_btonmarket.presentation
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.*
@@ -28,8 +28,8 @@ fun MainScreen(){
 fun BottomBar(navController: NavHostController){
     val screens = listOf(
         BottomBarScreen.HomeScreen,
+        BottomBarScreen.CategoriesScreen,
         BottomBarScreen.SellScreen,
-        BottomBarScreen.ProfileScreen
     )
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
