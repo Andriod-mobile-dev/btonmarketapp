@@ -1,4 +1,4 @@
-package com.example.btonmarket
+package com.example.btonmarket.feature_btonmarket.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
