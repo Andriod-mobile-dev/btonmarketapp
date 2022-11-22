@@ -28,8 +28,8 @@ fun MainScreen(){
 fun BottomBar(navController: NavHostController){
     val screens = listOf(
         BottomBarScreen.HomeScreen,
-        BottomBarScreen.SellScreen,
-        BottomBarScreen.ProfileScreen
+        BottomBarScreen.ProfileScreen,
+        BottomBarScreen.SellScreen
     )
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()

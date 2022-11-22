@@ -1,9 +1,7 @@
 package com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.filled.*
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class BottomBarScreen(
@@ -12,20 +10,20 @@ sealed class BottomBarScreen(
     val icon: ImageVector
 ){
     object HomeScreen : BottomBarScreen(
-        route = "home",
-        title = "Home",
-        icon = Icons.Default.Home
+        route = "buy",
+        title = "Buy",
+        icon = Icons.Default.ShoppingCart
     )
     object ProfileScreen : BottomBarScreen(
-        route = "profile",
-        title = "Profile",
-        icon = Icons.Default.Person
+        route = "list",
+        title = "Item Groups",
+        icon = Icons.Default.List
     )
 
     object SellScreen : BottomBarScreen(
         route = "sell",
         title = "Sell",
-        icon = Icons.Default.ShoppingCart
+        icon = Icons.Default.Send
     )
 
 }
