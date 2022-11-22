@@ -1,10 +1,7 @@
 package com.example.btonmarket.core.presentation.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -16,7 +13,9 @@ fun ImageThumbnail(resource_imageID: Int){
         contentDescription = "On sell item",
         modifier = Modifier
             //.size(150.dp)
-            .width(150.dp)
-            .height(200.dp)
+            .requiredWidth(150.dp)
+            .requiredHeight(200.dp)
+//            .width(150.dp)
+//            .height(200.dp)
     )
 }
