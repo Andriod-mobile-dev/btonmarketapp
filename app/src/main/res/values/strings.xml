@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">btonmarket</string>
+    <string name="NEGOTIABLE">Negotiable</string>
+    <string name="NON_NEGOTIABLE">Non-negotiable</string>
 </resources>

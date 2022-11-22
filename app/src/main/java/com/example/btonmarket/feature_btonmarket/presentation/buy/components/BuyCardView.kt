@@ -1,5 +1,6 @@
 package com.example.btonmarket.feature_btonmarket.presentation.buy.components
 
+import android.provider.Settings.Global.getString
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
@@ -86,28 +87,9 @@ fun ItemDetailColumn(itemName: String, price: Float, negotiable: Boolean){
         )
 
         if (negotiable) {
-            //append("Negotiable")
-            //Text(text = "Negotiable", color = Color.Green)
-            Text(
-                buildAnnotatedString {
-                    //append("Seller: ")
-                    withStyle(
-                        style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.DarkGray)
-                    ) {
-                        append("Negotiable")
-                    }
-                }
-            )
+            Text(text = "Non-negotiable", fontWeight = FontWeight.Bold, color=Color.DarkGray)
         } else {
-            Text(
-                buildAnnotatedString {
-                    withStyle(
-                        style = SpanStyle(fontWeight = FontWeight.SemiBold, color = Color.LightGray)
-                    ) {
-                        append("Non-negotiable")
-                    }
-                }
-            )
+            Text(text = "Non-Negotiable", fontWeight = FontWeight.Bold, color=Color.LightGray)
         }
     }
 }
@@ -127,15 +109,6 @@ fun SellerDetailColumn(seller: String){
     }
 }
 
-//@Composable
-//fun ImageThumbnail(resourceimageID: Int){
-//    Image(painter = painterResource(id = resourceimageID),
-//        contentDescription = "On sell item",
-//        modifier = Modifier
-//            .size(100.dp)
-//            .padding(20.dp)
-//    )
-//}
 
 @Composable
 @Preview
