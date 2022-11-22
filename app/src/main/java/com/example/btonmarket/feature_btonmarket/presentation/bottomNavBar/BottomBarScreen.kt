@@ -9,7 +9,7 @@ sealed class BottomBarScreen(
     val title: String,
     val icon: ImageVector
 ){
-    object HomeScreen : BottomBarScreen(
+    object BuyScreen : BottomBarScreen(
         route = "buy",
         title = "Buy",
         icon = Icons.Default.ShoppingCart

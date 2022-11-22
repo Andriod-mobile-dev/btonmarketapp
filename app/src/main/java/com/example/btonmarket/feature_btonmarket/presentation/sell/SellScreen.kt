@@ -1,4 +1,4 @@
-package com.example.btonmarket.feature_btonmarket.presentation.home
+package com.example.btonmarket.feature_btonmarket.presentation.buy
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
