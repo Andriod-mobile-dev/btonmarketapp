@@ -14,9 +14,9 @@ sealed class BottomBarScreen(
         title = "Buy",
         icon = Icons.Default.ShoppingCart
     )
-    object ProfileScreen : BottomBarScreen(
+    object CategoriesScreen : BottomBarScreen(
         route = "list",
-        title = "Item Groups",
+        title = "Category",
         icon = Icons.Default.List
     )
 

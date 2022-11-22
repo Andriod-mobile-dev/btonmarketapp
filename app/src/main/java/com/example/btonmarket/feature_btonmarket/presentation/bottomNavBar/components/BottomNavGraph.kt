@@ -5,8 +5,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.BottomBarScreen
+import com.example.btonmarket.feature_btonmarket.presentation.categories.CategoriesScreen
 import com.example.btonmarket.feature_btonmarket.presentation.home.HomeScreen
-import com.example.btonmarket.feature_btonmarket.presentation.home.ProfileScreen
+import com.example.btonmarket.feature_btonmarket.presentation.profile.ProfileScreen
 import com.example.btonmarket.feature_btonmarket.presentation.home.SellScreen
 
 @Composable
@@ -23,8 +24,8 @@ fun BottomNavGraph(navController: NavHostController){
             SellScreen()
         }
 
-        composable(route = BottomBarScreen.ProfileScreen.route){
-            ProfileScreen()
+        composable(route = BottomBarScreen.CategoriesScreen.route){
+            CategoriesScreen()
         }
     }
 }

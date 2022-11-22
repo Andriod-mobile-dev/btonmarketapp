@@ -1,4 +1,4 @@
-package com.example.btonmarket.feature_btonmarket.presentation.profile
+package com.example.btonmarket.feature_btonmarket.presentation.categories
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -14,24 +14,24 @@ import androidx.compose.ui.tooling.preview.Preview
 
 
 @Composable
-fun ProfileScreen(){
+fun CategoriesScreen(){
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Blue),
+            .background(Color.Yellow),
         contentAlignment = Alignment.Center
     ){
         Text(
-            text = "Profile",
+            text = "Categories",
             fontSize = MaterialTheme.typography.h3.fontSize,
             fontWeight = FontWeight.Bold,
-            color = Color.White
+            color = Color.Red
         )
     }
 }
 
 @Composable
 @Preview
-fun ProfileScreenPreview(){
-    ProfileScreen()
+fun CategoriesScreenPreview(){
+    CategoriesScreen()
 }
