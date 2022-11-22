@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 
 
 @Composable
-fun HomeScreen(){
+fun BuyScreen(){
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -22,7 +22,7 @@ fun HomeScreen(){
         contentAlignment = Alignment.Center
     ){
         Text(
-            text = "Home",
+            text = "BuyScreen",
             fontSize = MaterialTheme.typography.h3.fontSize,
             fontWeight = FontWeight.Bold,
             color = Color.Black
@@ -32,6 +32,6 @@ fun HomeScreen(){
 
 @Composable
 @Preview
-fun HomeScreenPreview(){
-    HomeScreen()
+fun BuyScreenPreview(){
+    BuyScreen()
 }

@@ -27,7 +27,7 @@ fun MainScreen(){
 @Composable
 fun BottomBar(navController: NavHostController){
     val screens = listOf(
-        BottomBarScreen.HomeScreen,
+        BottomBarScreen.BuyScreen,
         BottomBarScreen.CategoriesScreen,
         BottomBarScreen.SellScreen,
     )
