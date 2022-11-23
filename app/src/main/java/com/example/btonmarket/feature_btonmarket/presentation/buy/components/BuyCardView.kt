@@ -1,12 +1,10 @@
 package com.example.btonmarket.feature_btonmarket.presentation.buy.components
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.runtime.Composable
@@ -19,7 +17,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
 import com.example.btonmarket.R
 import com.example.btonmarket.core.presentation.components.ImageThumbnail
 import com.example.btonmarket.feature_btonmarket.presentation.buy.BuyScreen
@@ -60,8 +57,7 @@ fun BuyCardView(itemName: String,
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
-                //Text(text = "Hey")
-                ItemDetailColumn(itemName, price, condition, negotiable)
+                ItemDetailColumn(itemName, price, condition, negotiable, sold)
                 SellerDetailColumn(seller)
             }
 
@@ -70,9 +66,26 @@ fun BuyCardView(itemName: String,
 }
 
 @Composable
-fun ItemDetailColumn(itemName: String, price: Float, condition: String, negotiable: Boolean){
+fun ItemAndSellStatus(itemName: String, sold: Boolean){
+    Row{
+        Text(text = itemName,fontWeight = FontWeight.W900, color = Color(0xFF4552B8))
+        Spacer(modifier = Modifier.size(3.dp))
+        if (sold){
+            Text(text = "sold",color=Color.Red, modifier = Modifier.border(BorderStroke(1.dp, Color.Red)).padding(4.dp, 0.dp))
+        }
+        else{
+            Text(text = "on-sell", color=Color.Blue, modifier = Modifier
+                .border(BorderStroke(0.4.dp, Color.Blue))
+                .padding(4.dp, 0.dp))
+        }
+    }
+}
+
+@Composable
+fun ItemDetailColumn(itemName: String, price: Float, condition: String, negotiable: Boolean, sold: Boolean){
     Column{
-        Text(text = itemName, fontWeight = FontWeight.W900, color = Color(0xFF4552B8))
+        //Text(text = itemName, fontWeight = FontWeight.W900, color = Color(0xFF4552B8))
+        ItemAndSellStatus(itemName = itemName, sold = sold)
         Text(text = "$condition  condition")
         Text(
             buildAnnotatedString {
