@@ -132,5 +132,5 @@ fun SellerDetailColumn(seller: String){
 @Composable
 @Preview
 fun BuyScreenPreview(){
-    BuyScreen()
+    //BuyScreen()
 }
