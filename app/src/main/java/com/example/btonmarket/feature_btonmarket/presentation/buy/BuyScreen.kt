@@ -25,10 +25,16 @@ fun BuyScreen(OnSellItemsVm: OnSellItemsViewModel){
     // make sure to put the card at the center of the screen horizontally
 
     LaunchedEffect(key1 = Unit, block = {
+        //OnSellItemsVm.getOnSellItems()
         OnSellItemsVm.getOnSellItems()
     })
 
-    Log.d("onSellItem", OnSellItemsVm.onSellItemsList.toString())
+    Log.d("onSell2", OnSellItemsVm.onSellItemsList.toString())
+
+    var list = listOf<OnSellItems>(
+        OnSellItems(1, "Item1name", "Tesfa", "good", 4f, true, true, "www.google.com"),
+        OnSellItems(2, "Item2name", "Tesfa2", "good2", 1f, true, true, "www.google.com")
+    )
 
 //    Column(
 //        modifier = Modifier
@@ -47,7 +53,7 @@ fun BuyScreen(OnSellItemsVm: OnSellItemsViewModel){
 
     if(OnSellItemsVm.errorMessage.isEmpty()){
         LazyColumn(modifier = Modifier.fillMaxSize()){
-            items(OnSellItemsVm.onSellItemsList){ onSellItems ->
+            items(list){ onSellItems ->
                 Column(
                     modifier = Modifier
                         .fillMaxWidth(),
