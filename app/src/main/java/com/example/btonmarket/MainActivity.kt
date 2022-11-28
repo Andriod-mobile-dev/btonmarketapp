@@ -22,10 +22,20 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BtonmarketTheme {
-                MainScreen(onSellVm)
+                Test(onSellVm)
+                //MainScreen(onSellVm)
             }
         }
     }
+}
+
+@Composable
+fun Test(viewModel: OnSellItemsViewModel){
+    LaunchedEffect(key1 = Unit, block = {
+        viewModel.getOnSellItems()
+    })
+
+    Log.d("New Item", viewModel.onSellItemsList.toString())
 }
 
 

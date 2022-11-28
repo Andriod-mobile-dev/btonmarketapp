@@ -1,5 +1,6 @@
 package com.example.btonmarket.feature_btonmarket.domain.model
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -24,6 +25,7 @@ class OnSellItemsViewModel: ViewModel() {
             try{
                 _onSellItemsList.clear()
                 _onSellItemsList.addAll(apiService.getOnSellItems())
+                Log.d("Getting itemss", onSellItemsList.toString())
             } catch (e: Exception){
                 //Todo: shouldn't be displayed on it.
                 errorMessage = e.message.toString()
