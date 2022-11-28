@@ -26,4 +26,10 @@ sealed class BottomBarScreen(
         icon = Icons.Default.Send
     )
 
+    object ProfileScreen : BottomBarScreen(
+        route = "profile",
+        title = "Profile",
+        icon = Icons.Default.Person
+    )
+
 }

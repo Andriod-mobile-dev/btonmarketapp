@@ -1,5 +1,6 @@
 package com.example.btonmarket.feature_btonmarket.presentation
 
+import android.annotation.SuppressLint
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -10,6 +11,7 @@ import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.compo
 import  com.example.btonmarket.R
 import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.components.BottomBar
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainScreen(){
     val navController = rememberNavController()
@@ -17,7 +19,7 @@ fun MainScreen(){
     Scaffold(
         topBar = { TopBar() },
         bottomBar = {  BottomBar(navController = navController) }
-    ) {
+    ){
         BottomNavGraph(navController = navController)
     }
 }

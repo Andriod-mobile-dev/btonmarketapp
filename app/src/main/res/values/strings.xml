@@ -3,4 +3,7 @@
     <string name="NEGOTIABLE">Negotiable</string>
     <string name="NON_NEGOTIABLE">Non-negotiable</string>
     <string name="bton_market_title">Bton Market</string>
+    <string name="web_client_id">134570804307-7idnqd1gkqr8kgvk31b4kvlpbfu8n76c.apps.googleusercontent.com</string>
+    <string name="revoke_access_item">Revoke Access</string>
+    <string name="sign_out_item">Sign-out</string>
 </resources>

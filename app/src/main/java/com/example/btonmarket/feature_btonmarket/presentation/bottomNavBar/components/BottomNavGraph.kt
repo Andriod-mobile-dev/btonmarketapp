@@ -8,6 +8,7 @@ import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.Botto
 import com.example.btonmarket.feature_btonmarket.presentation.categories.CategoriesScreen
 import com.example.btonmarket.feature_btonmarket.presentation.buy.BuyScreen
 import com.example.btonmarket.feature_btonmarket.presentation.buy.SellScreen
+import com.example.btonmarket.feature_btonmarket.presentation.profile.ProfileScreen
 
 @Composable
 fun BottomNavGraph(navController: NavHostController){
@@ -25,6 +26,9 @@ fun BottomNavGraph(navController: NavHostController){
 
         composable(route = BottomBarScreen.CategoriesScreen.route){
             CategoriesScreen()
+        }
+        composable(route = BottomBarScreen.ProfileScreen.route){
+            ProfileScreen()
         }
     }
 }
