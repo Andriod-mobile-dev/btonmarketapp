@@ -1,5 +1,6 @@
 package com.example.btonmarket.feature_btonmarket.presentation
 
+import android.annotation.SuppressLint
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -12,6 +13,7 @@ import  com.example.btonmarket.R
 import com.example.btonmarket.feature_btonmarket.domain.model.OnSellItemsViewModel
 import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.components.BottomBar
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainScreen(OnSellItemsVm: OnSellItemsViewModel){
     val navController = rememberNavController()

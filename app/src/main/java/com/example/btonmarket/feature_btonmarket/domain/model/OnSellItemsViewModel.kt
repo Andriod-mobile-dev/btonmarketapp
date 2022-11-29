@@ -25,7 +25,7 @@ class OnSellItemsViewModel: ViewModel() {
             try{
                 _onSellItemsList.clear()
                 _onSellItemsList.addAll(apiService.getOnSellItems())
-                Log.d("Getting itemss", onSellItemsList.toString())
+                Log.d("_onSellItemsList", _onSellItemsList.size.toString())
             } catch (e: Exception){
                 //Todo: shouldn't be displayed on it.
                 errorMessage = e.message.toString()

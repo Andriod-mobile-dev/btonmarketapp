@@ -53,7 +53,7 @@ fun BuyScreen(OnSellItemsVm: OnSellItemsViewModel){
 
     if(OnSellItemsVm.errorMessage.isEmpty()){
         LazyColumn(modifier = Modifier.fillMaxSize()){
-            items(list){ onSellItems ->
+            items(OnSellItemsVm.onSellItemsList){ onSellItems ->
                 Column(
                     modifier = Modifier
                         .fillMaxWidth(),
