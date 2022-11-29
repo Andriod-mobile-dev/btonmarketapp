@@ -5,16 +5,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 data class Todo(
-    var userId: Int,
+    //var userId: Int,
     var id: Int,
-    var title: String,
-    var completed: Boolean
+    var name: String,
+    var seller: String,
+    var condition: String,
+    var price : Float, // may be wrong
+    var negotiable : Boolean,
+    var sold: Boolean,
+    var img: String,
 )
 
-const val BASE_URL = "https://jsonplaceholder.typicode.com/"
+const val BASE_URL = "https://btonmarketapi.herokuapp.com/api/"
 
 interface ApiService{
-    @GET("todos")
+    @GET("onsale-items")
     suspend fun getTodos(): List<Todo>
 
     companion object{
