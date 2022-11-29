@@ -17,8 +17,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BtonmarketTheme {
-                TodoView(vm)
-                //MainScreen()
+                //TodoView(vm)
+                MainScreen(vm)
             }
         }
     }
