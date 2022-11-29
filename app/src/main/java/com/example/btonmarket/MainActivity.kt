@@ -35,7 +35,7 @@ fun Test(viewModel: OnSellItemsViewModel){
         viewModel.getOnSellItems()
     })
 
-    Log.d("New Item", viewModel.onSellItemsList.toString())
+    Log.d("NewItem", viewModel.onSellItemsList.size.toString())
 }
 
 
