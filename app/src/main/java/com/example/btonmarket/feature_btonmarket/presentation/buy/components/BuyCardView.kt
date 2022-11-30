@@ -22,8 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 import com.example.btonmarket.R
-import com.example.btonmarket.core.presentation.components.ImageThumbnail
-import com.example.btonmarket.feature_btonmarket.presentation.buy.BuyScreen
+import com.example.btonmarket.core.presentation.components.ImageThumbnailFromURL
 
 @Composable
 fun BuyCardView(itemName: String,
@@ -32,6 +31,7 @@ fun BuyCardView(itemName: String,
                 seller: String,
                 negotiable: Boolean,
                 condition: String,
+                imgUrl: String,
 ) {
     Card(
         modifier = Modifier
@@ -50,10 +50,12 @@ fun BuyCardView(itemName: String,
             //horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().padding(0.dp, 20.dp),
                 horizontalArrangement = Arrangement.Center
             ) {
-                ImageThumbnail(R.drawable.ic_launcher_background)
+                //ImageThumbnail()
+                ImageThumbnailFromURL(url = imgUrl)
+
             }
 
             Row(
@@ -69,16 +71,19 @@ fun BuyCardView(itemName: String,
     }
 }
 
+
 @Composable
 fun ItemAndSellStatus(itemName: String, sold: Boolean){
     Row{
         Text(text = itemName,fontWeight = FontWeight.W900, color = Color(0xFF4552B8))
         Spacer(modifier = Modifier.size(3.dp))
         if (sold){
-            Text(text = "sold",color=Color.Red, modifier = Modifier.border(BorderStroke(1.dp, Color.Red)).padding(4.dp, 0.dp))
+            Text(text = "sold",color=Color.Red, modifier = Modifier
+                .border(BorderStroke(1.dp, Color.Red))
+                .padding(4.dp, 0.dp))
         }
         else{
-            Text(text = "on-sell", color=Color.Blue, modifier = Modifier
+            Text(text = "onsell", color=Color.Blue, modifier = Modifier
                 .border(BorderStroke(0.4.dp, Color.Blue))
                 .padding(4.dp, 0.dp))
         }
@@ -97,17 +102,17 @@ fun ItemDetailColumn(itemName: String, price: Float, condition: String, negotiab
                 withStyle(style = SpanStyle(fontWeight = FontWeight.W900)) {
                     append(price.toString())
                 }
-                append(" USD, ")
-
-                if (negotiable) {
-                    append(stringResource(id = R.string.NEGOTIABLE))
-                    //Text(text = stringResource(id = R.string.NEGOTIABLE), fontWeight = FontWeight.Bold, color=Color.DarkGray)
-                } else {
-                    append(stringResource(id = R.string.NEGOTIABLE))
-                    //Text(text = stringResource(id = R.string.NON_NEGOTIABLE), fontWeight = FontWeight.Bold, color=Color.LightGray)
-                }
+                append(" USD")
             }
         )
+
+        if (negotiable) {
+            //Text(stringResource(id = R.string.NEGOTIABLE))
+            Text(text = stringResource(id = R.string.NEGOTIABLE), fontWeight = FontWeight.Bold, color=Color.DarkGray)
+        } else {
+//            Text(stringResource(id = R.string.NEGOTIABLE))
+            Text(text = stringResource(id = R.string.NON_NEGOTIABLE), fontWeight = FontWeight.Bold, color=Color.LightGray)
+        }
 
     }
 }
