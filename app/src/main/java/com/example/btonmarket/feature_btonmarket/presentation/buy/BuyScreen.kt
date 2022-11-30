@@ -45,7 +45,8 @@ fun BuyScreen(onSellVm: OnSellViewModel){
                         sold = onSellItems.sold,
                         seller = onSellItems.seller,
                         negotiable = onSellItems.negotiable,
-                        condition = onSellItems.condition
+                        condition = onSellItems.condition,
+                        imgUrl = onSellItems.img,
                     )
                 }
             }

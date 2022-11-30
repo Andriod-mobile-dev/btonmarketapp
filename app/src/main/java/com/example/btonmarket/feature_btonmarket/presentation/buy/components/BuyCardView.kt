@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 
 import com.example.btonmarket.R
 import com.example.btonmarket.core.presentation.components.ImageThumbnail
+import com.example.btonmarket.core.presentation.components.ImageThumbnailFromURL
 import com.example.btonmarket.feature_btonmarket.presentation.buy.BuyScreen
 
 @Composable
@@ -32,6 +33,7 @@ fun BuyCardView(itemName: String,
                 seller: String,
                 negotiable: Boolean,
                 condition: String,
+                imgUrl: String,
 ) {
     Card(
         modifier = Modifier
@@ -53,7 +55,9 @@ fun BuyCardView(itemName: String,
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
-                ImageThumbnail(R.drawable.ic_launcher_background)
+                //ImageThumbnail()
+                ImageThumbnailFromURL(url = imgUrl)
+
             }
 
             Row(
@@ -69,13 +73,16 @@ fun BuyCardView(itemName: String,
     }
 }
 
+
 @Composable
 fun ItemAndSellStatus(itemName: String, sold: Boolean){
     Row{
         Text(text = itemName,fontWeight = FontWeight.W900, color = Color(0xFF4552B8))
         Spacer(modifier = Modifier.size(3.dp))
         if (sold){
-            Text(text = "sold",color=Color.Red, modifier = Modifier.border(BorderStroke(1.dp, Color.Red)).padding(4.dp, 0.dp))
+            Text(text = "sold",color=Color.Red, modifier = Modifier
+                .border(BorderStroke(1.dp, Color.Red))
+                .padding(4.dp, 0.dp))
         }
         else{
             Text(text = "onsell", color=Color.Blue, modifier = Modifier
