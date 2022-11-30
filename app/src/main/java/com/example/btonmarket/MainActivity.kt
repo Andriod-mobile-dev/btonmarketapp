@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BtonmarketTheme {
-                //TodoView(vm)
+                //Test(vm)
                 MainScreen(vm)
             }
         }
@@ -25,12 +25,12 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun TodoView(vm: OnSellViewModel){
+fun Test(vm: OnSellViewModel){
     LaunchedEffect(key1 = Unit, block = {
         vm.getOnSellItemsList()
     })
 
-    Log.d("Todo items: ", vm.onSellItemsList.size.toString())
+    Log.d("Test items: ", vm.onSellItemsList.size.toString())
 }
 
 
