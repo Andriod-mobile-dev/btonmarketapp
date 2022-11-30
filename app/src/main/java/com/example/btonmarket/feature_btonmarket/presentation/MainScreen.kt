@@ -3,18 +3,17 @@ package com.example.btonmarket.feature_btonmarket.presentation
 import android.annotation.SuppressLint
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.rememberNavController
 import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.components.BottomNavGraph
 import  com.example.btonmarket.R
-import com.example.btonmarket.feature_btonmarket.domain.model.TodoViewModel
+import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
 import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.components.BottomBar
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun MainScreen(onSellVm: TodoViewModel){
+fun MainScreen(onSellVm: OnSellViewModel){
     val navController = rememberNavController()
 
     Scaffold(

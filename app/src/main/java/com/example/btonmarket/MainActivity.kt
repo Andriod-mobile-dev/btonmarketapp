@@ -7,17 +7,17 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.btonmarket.feature_btonmarket.domain.model.TodoViewModel
+import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
 import com.example.btonmarket.feature_btonmarket.presentation.MainScreen
 import com.example.btonmarket.ui.theme.BtonmarketTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        val vm = TodoViewModel()
+        val vm = OnSellViewModel()
         super.onCreate(savedInstanceState)
         setContent {
             BtonmarketTheme {
-                //TodoView(vm)
+                //Test(vm)
                 MainScreen(vm)
             }
         }
@@ -25,12 +25,12 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun TodoView(vm: TodoViewModel){
+fun Test(vm: OnSellViewModel){
     LaunchedEffect(key1 = Unit, block = {
-        vm.getTodoList()
+        vm.getOnSellItemsList()
     })
 
-    Log.d("Todo items: ", vm.todoList.size.toString())
+    Log.d("Test items: ", vm.onSellItemsList.size.toString())
 }
 
 

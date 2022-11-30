@@ -7,22 +7,22 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.btonmarket.feature_btonmarket.data.data_source.remote.ApiService
-import com.example.btonmarket.feature_btonmarket.data.data_source.remote.Todo
+import com.example.btonmarket.feature_btonmarket.data.data_source.remote.onSellItem
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class TodoViewModel : ViewModel() {
-    private val _todoList = mutableStateListOf<Todo>()
+class OnSellViewModel : ViewModel() {
+    private val _onSellItemsList = mutableStateListOf<onSellItem>()
     var errorMessage: String by mutableStateOf("")
-    val todoList: List<Todo>
-        get() = _todoList
+    val onSellItemsList: List<onSellItem>
+        get() = _onSellItemsList
 
-    fun getTodoList() {
+    fun getOnSellItemsList() {
         viewModelScope.launch {
             val apiService = ApiService.getInstance()
             try {
-                _todoList.clear()
-                _todoList.addAll(apiService.getTodos())
+                _onSellItemsList.clear()
+                _onSellItemsList.addAll(apiService.getOnSellItems())
             } catch (e: Exception){
                 errorMessage = e.message.toString()
             }

@@ -12,22 +12,22 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.btonmarket.feature_btonmarket.domain.model.TodoViewModel
+import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
 import com.example.btonmarket.feature_btonmarket.presentation.buy.components.BuyCardView
 
 
 @Composable
-fun BuyScreen(onSellVm: TodoViewModel){
+fun BuyScreen(onSellVm: OnSellViewModel){
     // Test input here
     LaunchedEffect(key1 = Unit, block = {
-        onSellVm.getTodoList()
+        onSellVm.getOnSellItemsList()
     })
 
-    Log.d("Buy Items: ", onSellVm.todoList.size.toString())
+    Log.d("Buy Items: ", onSellVm.onSellItemsList.size.toString())
 
     if(onSellVm.errorMessage.isEmpty()){
         LazyColumn(modifier = Modifier.fillMaxSize()){
-            items(onSellVm.todoList){ onSellItems ->
+            items(onSellVm.onSellItemsList){ onSellItems ->
                 Column(
                     modifier = Modifier
                         .fillMaxWidth(),

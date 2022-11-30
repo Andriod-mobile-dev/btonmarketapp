@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-data class Todo(
+data class onSellItem(
     //var userId: Int,
     var id: Int,
     var name: String,
@@ -20,7 +20,7 @@ const val BASE_URL = "https://btonmarketapi.herokuapp.com/api/"
 
 interface ApiService{
     @GET("onsale-items")
-    suspend fun getTodos(): List<Todo>
+    suspend fun getOnSellItems(): List<onSellItem>
 
     companion object{
         var apiService: ApiService? = null
