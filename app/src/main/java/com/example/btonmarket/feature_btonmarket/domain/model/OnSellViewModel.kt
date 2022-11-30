@@ -11,7 +11,7 @@ import com.example.btonmarket.feature_btonmarket.data.data_source.remote.onSellI
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class TodoViewModel : ViewModel() {
+class OnSellViewModel : ViewModel() {
     private val _onSellItemsList = mutableStateListOf<onSellItem>()
     var errorMessage: String by mutableStateOf("")
     val onSellItemsList: List<onSellItem>
