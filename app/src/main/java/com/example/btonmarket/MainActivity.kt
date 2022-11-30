@@ -30,7 +30,7 @@ fun TodoView(vm: TodoViewModel){
         vm.getTodoList()
     })
 
-    Log.d("Todo items: ", vm.todoList.size.toString())
+    Log.d("Todo items: ", vm.onSellItemsList.size.toString())
 }
 
 

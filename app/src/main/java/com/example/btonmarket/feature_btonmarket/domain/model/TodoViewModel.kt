@@ -14,7 +14,7 @@ import java.lang.Exception
 class TodoViewModel : ViewModel() {
     private val _onSellItemsList = mutableStateListOf<onSellItem>()
     var errorMessage: String by mutableStateOf("")
-    val todoList: List<onSellItem>
+    val onSellItemsList: List<onSellItem>
         get() = _onSellItemsList
 
     fun getTodoList() {

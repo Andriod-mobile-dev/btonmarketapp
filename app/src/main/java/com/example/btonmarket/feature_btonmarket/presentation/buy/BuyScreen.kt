@@ -23,11 +23,11 @@ fun BuyScreen(onSellVm: TodoViewModel){
         onSellVm.getTodoList()
     })
 
-    Log.d("Buy Items: ", onSellVm.todoList.size.toString())
+    Log.d("Buy Items: ", onSellVm.onSellItemsList.size.toString())
 
     if(onSellVm.errorMessage.isEmpty()){
         LazyColumn(modifier = Modifier.fillMaxSize()){
-            items(onSellVm.todoList){ onSellItems ->
+            items(onSellVm.onSellItemsList){ onSellItems ->
                 Column(
                     modifier = Modifier
                         .fillMaxWidth(),
