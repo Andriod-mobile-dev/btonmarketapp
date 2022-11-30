@@ -20,7 +20,7 @@ import com.example.btonmarket.feature_btonmarket.presentation.buy.components.Buy
 fun BuyScreen(onSellVm: OnSellViewModel){
     // Test input here
     LaunchedEffect(key1 = Unit, block = {
-        onSellVm.getTodoList()
+        onSellVm.getOnSellItemsList()
     })
 
     Log.d("Buy Items: ", onSellVm.onSellItemsList.size.toString())

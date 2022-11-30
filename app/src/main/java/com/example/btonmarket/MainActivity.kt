@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun TodoView(vm: OnSellViewModel){
     LaunchedEffect(key1 = Unit, block = {
-        vm.getTodoList()
+        vm.getOnSellItemsList()
     })
 
     Log.d("Todo items: ", vm.onSellItemsList.size.toString())

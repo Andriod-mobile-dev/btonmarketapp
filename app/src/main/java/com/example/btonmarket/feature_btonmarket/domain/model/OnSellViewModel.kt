@@ -17,7 +17,7 @@ class OnSellViewModel : ViewModel() {
     val onSellItemsList: List<onSellItem>
         get() = _onSellItemsList
 
-    fun getTodoList() {
+    fun getOnSellItemsList() {
         viewModelScope.launch {
             val apiService = ApiService.getInstance()
             try {
