@@ -22,7 +22,7 @@ class TodoViewModel : ViewModel() {
             val apiService = ApiService.getInstance()
             try {
                 _todoList.clear()
-                _todoList.addAll(apiService.getTodos())
+                _todoList.addAll(apiService.getOnSellItems())
             } catch (e: Exception){
                 errorMessage = e.message.toString()
             }

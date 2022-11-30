@@ -20,7 +20,7 @@ const val BASE_URL = "https://btonmarketapi.herokuapp.com/api/"
 
 interface ApiService{
     @GET("onsale-items")
-    suspend fun getTodos(): List<onSellItem>
+    suspend fun getOnSellItems(): List<onSellItem>
 
     companion object{
         var apiService: ApiService? = null
