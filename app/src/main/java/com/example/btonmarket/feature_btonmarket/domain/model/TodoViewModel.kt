@@ -12,17 +12,17 @@ import kotlinx.coroutines.launch
 import java.lang.Exception
 
 class TodoViewModel : ViewModel() {
-    private val _todoList = mutableStateListOf<onSellItem>()
+    private val _onSellItemsList = mutableStateListOf<onSellItem>()
     var errorMessage: String by mutableStateOf("")
     val todoList: List<onSellItem>
-        get() = _todoList
+        get() = _onSellItemsList
 
     fun getTodoList() {
         viewModelScope.launch {
             val apiService = ApiService.getInstance()
             try {
-                _todoList.clear()
-                _todoList.addAll(apiService.getOnSellItems())
+                _onSellItemsList.clear()
+                _onSellItemsList.addAll(apiService.getOnSellItems())
             } catch (e: Exception){
                 errorMessage = e.message.toString()
             }
