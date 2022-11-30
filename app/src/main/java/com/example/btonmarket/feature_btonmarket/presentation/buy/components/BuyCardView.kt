@@ -22,9 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 import com.example.btonmarket.R
-import com.example.btonmarket.core.presentation.components.ImageThumbnail
 import com.example.btonmarket.core.presentation.components.ImageThumbnailFromURL
-import com.example.btonmarket.feature_btonmarket.presentation.buy.BuyScreen
 
 @Composable
 fun BuyCardView(itemName: String,
@@ -52,7 +50,7 @@ fun BuyCardView(itemName: String,
             //horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().padding(0.dp, 20.dp),
                 horizontalArrangement = Arrangement.Center
             ) {
                 //ImageThumbnail()
