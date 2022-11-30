@@ -78,7 +78,7 @@ fun ItemAndSellStatus(itemName: String, sold: Boolean){
             Text(text = "sold",color=Color.Red, modifier = Modifier.border(BorderStroke(1.dp, Color.Red)).padding(4.dp, 0.dp))
         }
         else{
-            Text(text = "on-sell", color=Color.Blue, modifier = Modifier
+            Text(text = "onsell", color=Color.Blue, modifier = Modifier
                 .border(BorderStroke(0.4.dp, Color.Blue))
                 .padding(4.dp, 0.dp))
         }
@@ -97,17 +97,17 @@ fun ItemDetailColumn(itemName: String, price: Float, condition: String, negotiab
                 withStyle(style = SpanStyle(fontWeight = FontWeight.W900)) {
                     append(price.toString())
                 }
-                append(" USD, ")
-
-                if (negotiable) {
-                    append(stringResource(id = R.string.NEGOTIABLE))
-                    //Text(text = stringResource(id = R.string.NEGOTIABLE), fontWeight = FontWeight.Bold, color=Color.DarkGray)
-                } else {
-                    append(stringResource(id = R.string.NEGOTIABLE))
-                    //Text(text = stringResource(id = R.string.NON_NEGOTIABLE), fontWeight = FontWeight.Bold, color=Color.LightGray)
-                }
+                append(" USD")
             }
         )
+
+        if (negotiable) {
+            //Text(stringResource(id = R.string.NEGOTIABLE))
+            Text(text = stringResource(id = R.string.NEGOTIABLE), fontWeight = FontWeight.Bold, color=Color.DarkGray)
+        } else {
+//            Text(stringResource(id = R.string.NEGOTIABLE))
+            Text(text = stringResource(id = R.string.NON_NEGOTIABLE), fontWeight = FontWeight.Bold, color=Color.LightGray)
+        }
 
     }
 }
