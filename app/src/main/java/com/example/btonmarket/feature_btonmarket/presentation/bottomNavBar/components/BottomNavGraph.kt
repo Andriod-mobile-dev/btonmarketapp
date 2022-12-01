@@ -8,7 +8,7 @@ import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
 import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.BottomBarScreen
 import com.example.btonmarket.feature_btonmarket.presentation.categories.CategoriesScreen
 import com.example.btonmarket.feature_btonmarket.presentation.buy.BuyScreen
-import com.example.btonmarket.feature_btonmarket.presentation.buy.SellScreen
+import com.example.btonmarket.feature_btonmarket.presentation.sell.SellScreen
 
 @Composable
 fun BottomNavGraph(navController: NavHostController, onSellVm: OnSellViewModel){
