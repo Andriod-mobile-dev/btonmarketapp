@@ -75,6 +75,12 @@ fun sell(sellVm: SellViewModel){
         LaunchedEffect(key1 = Unit, block = {
             //Todo: view model call goes here
             sellVm.postSellItem(sellItem(name, seller, condition, price, negotiable,sold, img))
+            name = ""
+            seller = ""
+            condition = ""
+            price = 10f
+            negotiable = false
+            img = ""
             Log.d("Sent sell post request", sellItem(name, seller, condition, price, negotiable,sold, img).toString())
         })
         sending = false // todo: not sure about this
