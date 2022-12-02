@@ -26,7 +26,8 @@ class SellViewModel: ViewModel() {
             call!!.enqueue(object: Callback<sellItem?> {
                 override fun onResponse(call: Call<sellItem?>?, response: Response<sellItem?>) {
                     //TODO("Not yet implemented")
-                    Log.d("Debug tesfa", "Success")
+                    Log.d("Debug tesfa", "Success ${response.message()}")
+
                 }
 
                 override fun onFailure(call: Call<sellItem?>?, t: Throwable) {

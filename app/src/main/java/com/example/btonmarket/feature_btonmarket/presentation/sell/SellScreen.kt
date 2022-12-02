@@ -17,11 +17,29 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.btonmarket.feature_btonmarket.data.data_source.remote.sellItem
 import com.example.btonmarket.feature_btonmarket.domain.model.SellViewModel
+import kotlin.math.roundToInt
 
 
 @Composable
 fun SellScreen(sellVm: SellViewModel){
-    sell(sellVm)
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(0.dp,50.dp,0.dp,0.dp)
+        ) {
+            pageTitle(title = "Sell Item")
+        }
+        Row(
+            modifier = Modifier
+                .width(300.dp)
+                .padding(0.dp, 20.dp)
+        ) {
+            sell(sellVm)
+        }
+    }
 }
 
 @Composable
@@ -36,7 +54,7 @@ fun sell(sellVm: SellViewModel){
         mutableStateOf("")
     }
     var price by remember {
-        mutableStateOf(10f)
+        mutableStateOf(10.00f)
     }
     var negotiable by remember {
         mutableStateOf(false)
@@ -57,16 +75,15 @@ fun sell(sellVm: SellViewModel){
         LaunchedEffect(key1 = Unit, block = {
             //Todo: view model call goes here
             sellVm.postSellItem(sellItem(name, seller, condition, price, negotiable,sold, img))
+            Log.d("Sent sell post request", sellItem(name, seller, condition, price, negotiable,sold, img).toString())
         })
         sending = false // todo: not sure about this
     }
 
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(0.dp, 40.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             SellForm(name, updateName = { nameInput ->
                 name = nameInput
             },
@@ -95,19 +112,18 @@ fun sell(sellVm: SellViewModel){
             Button(
                 onClick = {
                     sending = true
-                    name = ""
-                    seller = ""
-                    condition = ""
-                    price = 10f
-                    negotiable = false
-                    img = ""
+//                    name = ""
+//                    seller = ""
+//                    condition = ""
+//                    price = 10f
+//                    negotiable = false
+//                    img = ""
 
-                },
-                modifier = Modifier.padding(0.dp, 10.dp)
+                }
             ) {
                 Text(text = "Put on sell")
             }
-    }
+        }
 }
 
 //var name: String,
@@ -135,13 +151,40 @@ fun SellForm(name:String,
     CustomOutlinedTextInputField(field = seller, "Seller name", updateFieldName = updateSeller)
     CustomOutlinedTextInputField(field = condition, "Condition", updateFieldName = updateCondition)
     CustomOutlinedTextInputField(field = img, "Image", updateFieldName = updateImg)
-    //Todo: Price, Negotiable needs separate input fields
-    Row{
-        CustomSlider(value = price, from = .0f, to = 100.0f, updateValue = updatePrice)
-        Label(lableText = "${(price.toInt())}.0 usd", align = TextAlign.End)
+    CustomSlider(value = price, from = .0f, to = 100.0f, updateValue = updatePrice)
+    Label(lableText = "${(price)} usd", align = TextAlign.Start)
+    Toggle(negotiable,"Negotiable", updateValue = updateNegotiable)
+}
+
+//Todo: Global composable
+@Composable
+fun pageTitle(title:String){
+    Text(
+        text = title,
+        color = MaterialTheme.colors.primary,
+        fontSize = 30.sp,
+        fontWeight = FontWeight.ExtraBold,
+        maxLines = 1
+    )
+}
+
+@Composable
+fun Toggle(value:Boolean,name:String, updateValue: (Boolean) -> Unit){
+    Row(
+        modifier = Modifier.padding(0.dp, 15.dp)
+    ){
+        Column(
+            modifier = Modifier.padding(7.dp, 10.dp)
+        ){
+            Label(lableText = name, align = TextAlign.Start)
+        }
+        Column {
+            Switch(
+                checked = value,
+                onCheckedChange = { updateValue(it) }
+            )
+        }
     }
-
-
 }
 @Composable
 fun Label(lableText:String, align: TextAlign){
@@ -151,8 +194,13 @@ fun Label(lableText:String, align: TextAlign){
         fontWeight = FontWeight.Bold,
         textAlign = align,
         color = Color.Black,
-        modifier = Modifier.padding(0.dp,10.dp)
     )
+}
+
+// Todo: Util function
+fun roundToTwoDecimalPlace(number: Float) : Float{
+    val roundoff = (number * 100.0).roundToInt() / 100.0
+    return roundoff.toFloat()
 }
 
 @Composable
@@ -160,7 +208,7 @@ fun CustomSlider(value: Float,from:Float, to:Float, updateValue:(Float)->Unit){
     Slider(
         value = value,
         onValueChange = {
-            updateValue(it)
+            updateValue(roundToTwoDecimalPlace(it))
         },
         valueRange = from .. to,
         onValueChangeFinished = {
@@ -168,11 +216,10 @@ fun CustomSlider(value: Float,from:Float, to:Float, updateValue:(Float)->Unit){
         },
         steps = 0,
         colors = SliderDefaults.colors(
-            thumbColor = MaterialTheme.colors.secondary,
-            activeTickColor = MaterialTheme.colors.secondary,
-            disabledThumbColor = MaterialTheme.colors.secondary,
-        ),
-        modifier = Modifier.width(200.dp)
+            thumbColor = MaterialTheme.colors.primaryVariant,
+            activeTickColor = MaterialTheme.colors.primaryVariant,
+            disabledThumbColor = MaterialTheme.colors.primaryVariant,
+        )
     )
 }
 
@@ -180,6 +227,7 @@ fun CustomSlider(value: Float,from:Float, to:Float, updateValue:(Float)->Unit){
 fun CustomOutlinedTextInputField(field:String,
                                  lableName:String,
                                  updateFieldName: (String) -> Unit){
+    Log.d("updating value", field)
     OutlinedTextField(
         value = field,
         onValueChange = {updateFieldName(it)},
