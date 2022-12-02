@@ -8,17 +8,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
+import com.example.btonmarket.feature_btonmarket.domain.model.SellViewModel
 import com.example.btonmarket.feature_btonmarket.presentation.MainScreen
 import com.example.btonmarket.ui.theme.BtonmarketTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val vm = OnSellViewModel()
+        val sellVm = SellViewModel()
         super.onCreate(savedInstanceState)
         setContent {
             BtonmarketTheme {
                 //Test(vm)
-                MainScreen(vm)
+                MainScreen(vm, sellVm)
             }
         }
     }
