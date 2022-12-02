@@ -7,18 +7,19 @@ import retrofit2.http.Body
 import retrofit2.http.Headers
 import retrofit2.http.POST
 
+const val base_url = "https://btonmarketapi.herokuapp.com/api/"
 
 interface RetrofitAPI {
     @Headers("Content-Type: application/json")
-    @POST("onsale-create")
-    suspend fun createOnSell(@Body dataModel: onSellItem?): Call<onSellItem?>?
+    @POST("onsale-create/")
+    suspend fun createOnSell(@Body dataModel: onSellItem): Call<onSellItem?>?
 
     companion object{
         var apiService: RetrofitAPI? = null
         fun getInstance(): RetrofitAPI {
             if (apiService == null){
                 apiService = Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+                    .baseUrl(base_url)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build().create(RetrofitAPI::class.java)
             }

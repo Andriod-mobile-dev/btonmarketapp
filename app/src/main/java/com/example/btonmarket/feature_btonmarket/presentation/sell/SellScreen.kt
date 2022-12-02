@@ -64,7 +64,7 @@ fun sell(sellVm: SellViewModel){
         mutableStateOf(false)
     }
     var img by remember {
-        mutableStateOf("http://static1.squarespace.com/static/5cccefb965a707021ea7c5e0/5ce8b9f4fa0d602415d5bc74/5eddda3adf6d132badf4d5f5/1607903256113/?format=1500w")
+        mutableStateOf("https://i.pinimg.com/originals/37/5e/76/375e76f6570dac6e3cceb3c327af30fb.jpg")
     }
     var sending by remember {
         mutableStateOf(false)
