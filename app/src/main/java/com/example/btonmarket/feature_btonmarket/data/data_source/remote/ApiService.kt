@@ -1,8 +1,12 @@
 package com.example.btonmarket.feature_btonmarket.data.data_source.remote
 
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Headers
+import retrofit2.http.POST
 
 data class onSellItem(
     //var userId: Int,
@@ -16,11 +20,25 @@ data class onSellItem(
     var img: String,
 )
 
+data class sellItem(
+    var name: String,
+    var seller: String,
+    var condition: String,
+    var price : Float,
+    var negotiable : Boolean,
+    var sold: Boolean,
+    var img: String,
+)
+
 const val BASE_URL = "https://btonmarketapi.herokuapp.com/api/"
 
 interface ApiService{
     @GET("onsale-items")
     suspend fun getOnSellItems(): List<onSellItem>
+
+    @Headers("Content-Type: application/json")
+    @POST("onsale-create/")
+    fun createOnSell(@Body dataModel: sellItem?): Call<sellItem?>?
 
     companion object{
         var apiService: ApiService? = null
@@ -34,4 +52,5 @@ interface ApiService{
             return apiService!!
         }
     }
+
 }

@@ -5,13 +5,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
+import com.example.btonmarket.feature_btonmarket.domain.model.SellViewModel
 import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.BottomBarScreen
 import com.example.btonmarket.feature_btonmarket.presentation.categories.CategoriesScreen
 import com.example.btonmarket.feature_btonmarket.presentation.buy.BuyScreen
-import com.example.btonmarket.feature_btonmarket.presentation.buy.SellScreen
+import com.example.btonmarket.feature_btonmarket.presentation.sell.SellScreen
 
 @Composable
-fun BottomNavGraph(navController: NavHostController, onSellVm: OnSellViewModel){
+fun BottomNavGraph(navController: NavHostController, onSellVm: OnSellViewModel, sellvm: SellViewModel){
     NavHost(
         navController = navController,
         startDestination = BottomBarScreen.BuyScreen.route
@@ -21,7 +22,7 @@ fun BottomNavGraph(navController: NavHostController, onSellVm: OnSellViewModel){
         }
 
         composable(route = BottomBarScreen.SellScreen.route){
-            SellScreen()
+            SellScreen(sellvm)
         }
 
         composable(route = BottomBarScreen.CategoriesScreen.route){

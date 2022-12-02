@@ -68,6 +68,12 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     //retrofit gson
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    // Coroutines to make the HTTP requests asynchronous(In the background thread)
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    // Okhttp3 for the POST requests
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+
+
     //glide
     implementation "com.github.skydoves:landscapist-glide:2.1.0"
 }
