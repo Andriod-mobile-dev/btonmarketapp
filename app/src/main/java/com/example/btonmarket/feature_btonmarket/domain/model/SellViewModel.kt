@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.btonmarket.feature_btonmarket.data.data_source.remote.ApiService
 import com.example.btonmarket.feature_btonmarket.data.data_source.remote.onSellItem
+import com.example.btonmarket.feature_btonmarket.data.data_source.remote.sellItem
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,19 +17,19 @@ import retrofit2.Response
 class SellViewModel: ViewModel() {
     var sellErrorMessage: String by mutableStateOf("")
 
-    fun postSellItem(item: onSellItem){
+    fun postSellItem(item: sellItem){
         //Todo: debbugging stopped here!
         viewModelScope.launch {
             val apiService = ApiService.getInstance()
-            val call: Call<onSellItem?>? = apiService.createOnSell(item)
+            val call: Call<sellItem?>? = apiService.createOnSell(item)
 
-            call!!.enqueue(object: Callback<onSellItem?> {
-                override fun onResponse(call: Call<onSellItem?>?, response: Response<onSellItem?>) {
+            call!!.enqueue(object: Callback<sellItem?> {
+                override fun onResponse(call: Call<sellItem?>?, response: Response<sellItem?>) {
                     //TODO("Not yet implemented")
                     Log.d("Debug tesfa", "Success")
                 }
 
-                override fun onFailure(call: Call<onSellItem?>?, t: Throwable) {
+                override fun onFailure(call: Call<sellItem?>?, t: Throwable) {
                     sellErrorMessage = t.message.toString()
                     Log.d("Debug tesfa", sellErrorMessage)
                 }

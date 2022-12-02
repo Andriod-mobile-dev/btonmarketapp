@@ -20,11 +20,25 @@ data class onSellItem(
     var img: String,
 )
 
+data class sellItem(
+    var name: String,
+    var seller: String,
+    var condition: String,
+    var price : Float,
+    var negotiable : Boolean,
+    var sold: Boolean,
+    var img: String,
+)
+
 const val BASE_URL = "https://btonmarketapi.herokuapp.com/api/"
 
 interface ApiService{
     @GET("onsale-items")
     suspend fun getOnSellItems(): List<onSellItem>
+
+    @Headers("Content-Type: application/json")
+    @POST("onsale-create/")
+    fun createOnSell(@Body dataModel: sellItem?): Call<sellItem?>?
 
     companion object{
         var apiService: ApiService? = null
@@ -38,11 +52,5 @@ interface ApiService{
             return apiService!!
         }
     }
-    @Headers("Content-Type: application/json")
-    @POST("onsale-create/")
-    fun createOnSell(@Body dataModel: onSellItem?): Call<onSellItem?>?
-
-//    @POST("onsale-create")
-//    suspend fun createOnSell(@Body dataModel: onSellItem?): Call<onSellItem?>?
 
 }
