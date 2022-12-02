@@ -28,14 +28,14 @@ fun SellScreen(sellVm: SellViewModel){
     ) {
         Row(
             modifier = Modifier
-                .padding(0.dp,50.dp,0.dp,0.dp)
+                .padding(0.dp,5.dp,0.dp,0.dp)
         ) {
             pageTitle(title = "Sell Item")
         }
         Row(
             modifier = Modifier
                 .width(300.dp)
-                .padding(0.dp, 20.dp)
+                .padding(0.dp, 10.dp)
         ) {
             sell(sellVm)
         }
@@ -118,13 +118,6 @@ fun sell(sellVm: SellViewModel){
             Button(
                 onClick = {
                     sending = true
-//                    name = ""
-//                    seller = ""
-//                    condition = ""
-//                    price = 10f
-//                    negotiable = false
-//                    img = ""
-
                 }
             ) {
                 Text(text = "Put on sell")
@@ -231,14 +224,14 @@ fun CustomSlider(value: Float,from:Float, to:Float, updateValue:(Float)->Unit){
 
 @Composable
 fun CustomOutlinedTextInputField(field:String,
-                                 lableName:String,
+                                 labelName:String,
                                  updateFieldName: (String) -> Unit){
     Log.d("updating value", field)
     OutlinedTextField(
         value = field,
         onValueChange = {updateFieldName(it)},
         label = {
-                Text(text = lableName)
+                Text(text = labelName)
         },
         singleLine = true,
         // outlined text color
