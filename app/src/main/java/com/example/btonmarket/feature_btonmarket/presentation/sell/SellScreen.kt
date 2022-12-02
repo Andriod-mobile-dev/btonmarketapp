@@ -61,11 +61,18 @@ fun sell(sellVm: SellViewModel){
         sending = false // todo: not sure about this
     }
 
+    SellForm()
+
     Button(onClick = {
         sending=true
     }) {
         Text(text = "Put on sell")
     }
+}
+
+@Composable
+fun SellForm(){
+
 }
 
 
