@@ -12,7 +12,7 @@ const val base_url = "https://btonmarketapi.herokuapp.com/api/"
 interface RetrofitAPI {
     @Headers("Content-Type: application/json")
     @POST("onsale-create/")
-    suspend fun createOnSell(@Body dataModel: onSellItem): Call<onSellItem?>?
+    fun createOnSell(@Body dataModel: onSellItem?): Call<onSellItem?>?
 
     companion object{
         var apiService: RetrofitAPI? = null

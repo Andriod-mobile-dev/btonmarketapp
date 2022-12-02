@@ -31,8 +31,8 @@ class SellViewModel: ViewModel() {
                 }
 
                 override fun onFailure(call: Call<onSellItem?>?, t: Throwable) {
-                    errorMessage = t.message.toString()
-                    Log.d("Debug tesfa", errorMessage)
+                    sellErrorMessage = t.message.toString()
+                    Log.d("Debug tesfa", sellErrorMessage)
                 }
             })
         }
