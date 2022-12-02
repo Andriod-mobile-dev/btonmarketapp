@@ -7,7 +7,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.btonmarket.feature_btonmarket.data.data_source.remote.ApiService
-import com.example.btonmarket.feature_btonmarket.data.data_source.remote.RetrofitAPI
 import com.example.btonmarket.feature_btonmarket.data.data_source.remote.onSellItem
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -15,13 +14,12 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SellViewModel: ViewModel() {
-    var errorMessage: String by mutableStateOf("")
     var sellErrorMessage: String by mutableStateOf("")
 
     fun postSellItem(item: onSellItem){
         //Todo: debbugging stopped here!
         viewModelScope.launch {
-            val apiService = RetrofitAPI.getInstance()
+            val apiService = ApiService.getInstance()
             val call: Call<onSellItem?>? = apiService.createOnSell(item)
 
             call!!.enqueue(object: Callback<onSellItem?> {

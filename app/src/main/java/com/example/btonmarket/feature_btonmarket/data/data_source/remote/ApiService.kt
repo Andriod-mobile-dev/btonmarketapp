@@ -38,6 +38,9 @@ interface ApiService{
             return apiService!!
         }
     }
+    @Headers("Content-Type: application/json")
+    @POST("onsale-create/")
+    fun createOnSell(@Body dataModel: onSellItem?): Call<onSellItem?>?
 
 //    @POST("onsale-create")
 //    suspend fun createOnSell(@Body dataModel: onSellItem?): Call<onSellItem?>?
