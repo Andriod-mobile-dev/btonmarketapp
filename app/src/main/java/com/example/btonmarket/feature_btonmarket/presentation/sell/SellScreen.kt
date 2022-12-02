@@ -45,13 +45,13 @@ fun SellScreen(sellVm: SellViewModel){
 @Composable
 fun sell(sellVm: SellViewModel){
     var name by remember {
-        mutableStateOf("Jebena")
+        mutableStateOf("Injera")
     }
     var seller by remember {
-        mutableStateOf("Merry")
+        mutableStateOf("Zemeta")
     }
     var condition by remember {
-        mutableStateOf("Good")
+        mutableStateOf("Excellent")
     }
     var price by remember {
         mutableStateOf(10f)
@@ -64,7 +64,7 @@ fun sell(sellVm: SellViewModel){
         mutableStateOf(false)
     }
     var img by remember {
-        mutableStateOf("https://i.pinimg.com/originals/37/5e/76/375e76f6570dac6e3cceb3c327af30fb.jpg")
+        mutableStateOf("https://cdn.shopify.com/s/files/1/0148/1945/9126/articles/Injera_720x.jpg?v=1589810405")
     }
     var sending by remember {
         mutableStateOf(false)
