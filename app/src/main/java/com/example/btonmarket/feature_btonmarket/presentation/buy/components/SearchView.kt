@@ -11,10 +11,7 @@ import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
@@ -25,15 +22,25 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.btonmarket.R
+import com.example.btonmarket.feature_btonmarket.domain.model.SearchItemsViewModel
+
 
 @Composable
-fun SearchView(state: MutableState<TextFieldValue>) {
+fun SearchView(state: MutableState<TextFieldValue>, searchVm: SearchItemsViewModel, search: MutableState<Boolean>) {
+    if (search.value){
+        LaunchedEffect(key1 = Unit, block = {
+            searchVm.searchItems(state.value.text)
+        })
+        search.value = false
+    }
     TextField(
         value = state.value,
         onValueChange = { value ->
             state.value = value
             //Todo: make the query here!
-            Log.d("input value", value.toString())
+            search.value = true
+            //searchItem(searchItem = state.value.text, searchVm = searchVm)
+            //Log.d("input value", value.toString())
         },
         modifier = Modifier
             .fillMaxWidth(),
@@ -83,6 +90,6 @@ fun SearchView(state: MutableState<TextFieldValue>) {
 @Preview(showBackground = true)
 @Composable
 fun SearchViewPreview() {
-    val textState = remember { mutableStateOf(TextFieldValue("")) }
-    SearchView(textState)
+    //val textState = remember { mutableStateOf(TextFieldValue("")) }
+    //SearchView(textState)
 }

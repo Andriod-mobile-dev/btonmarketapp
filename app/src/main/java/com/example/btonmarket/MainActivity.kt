@@ -21,8 +21,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BtonmarketTheme {
-                Test(vm,searchVm)
-                MainScreen(vm, sellVm)
+                //Test(vm,searchVm)
+                MainScreen(vm, sellVm, searchVm)
             }
         }
     }
@@ -30,10 +30,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Test(vm: OnSellViewModel, searchVm: SearchItemsViewModel){
-    LaunchedEffect(key1 = Unit, block = {
-        searchVm.searchItems("car")
-    })
-    Log.d("Search Debug", searchVm.searchedSellItemsList.size.toString())
+//    LaunchedEffect(key1 = Unit, block = {
+//        searchVm.searchItems("car")
+//    })
+    //Log.d("Search Debug", searchVm.searchedSellItemsList.size.toString())
 //    LaunchedEffect(key1 = Unit, block = {
 //        vm.getOnSellItemsList()
 //    })
