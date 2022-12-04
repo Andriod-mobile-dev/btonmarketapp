@@ -30,12 +30,16 @@ fun BuyScreen(onSellVm: OnSellViewModel){
     })
 
     Log.d("Buy Items: ", onSellVm.onSellItemsList.size.toString())
-
-    if(onSellVm.errorMessage.isEmpty()){
+    val textState = remember { mutableStateOf(TextFieldValue("")) }
+    Log.d("Search input text", textState.value.text)
+    Column() {
+        SearchView(textState)
+    }
+    if(onSellVm.errorMessage.isEmpty() && textState.value.text.isEmpty()){
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(0.dp,0.dp,0.dp, 60.dp)
+                .padding(0.dp, 50.dp, 0.dp, 60.dp)
         ){
             items(onSellVm.onSellItemsList){ onSellItems ->
                 Column(
@@ -55,7 +59,12 @@ fun BuyScreen(onSellVm: OnSellViewModel){
                 }
             }
         }
-    }else{
+    } else if(textState.value.text.isNotEmpty()){
+        // Todo: pass the view model here
+        // Todo:onSearchViewModelError check as conditional
+        Log.d("Empty", "isEmpty")
+    }
+    else{
         Text(text = onSellVm.errorMessage)
     }
 

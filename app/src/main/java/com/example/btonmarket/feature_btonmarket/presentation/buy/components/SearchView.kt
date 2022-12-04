@@ -1,5 +1,6 @@
 package com.example.btonmarket.feature_btonmarket.presentation.buy.components
 
+import android.util.Log
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -31,6 +32,8 @@ fun SearchView(state: MutableState<TextFieldValue>) {
         value = state.value,
         onValueChange = { value ->
             state.value = value
+            //Todo: make the query here!
+            Log.d("input value", value.toString())
         },
         modifier = Modifier
             .fillMaxWidth(),
