@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.runtime.R
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
@@ -28,60 +29,61 @@ fun BuyScreen(onSellVm: OnSellViewModel,searchVm:SearchItemsViewModel){
     val textState = remember { mutableStateOf(TextFieldValue("")) }
     Log.d("Search input text", textState.value.text)
     val search =  remember {
-        mutableStateOf<Boolean>(false)
+        mutableStateOf(false)
     }
-    Row {
-        SearchView(textState, searchVm, search)
-    }
-    if(onSellVm.errorMessage.isEmpty() || searchVm.errorMessage.isEmpty()){
+    Column {
         Row {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(0.dp, 50.dp, 0.dp, 60.dp)
-            ) {
-                if (textState.value.text.isNotEmpty()) {
-                    items(searchVm.searchedSellItemsList) { onSellItems ->
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            BuyCardView(
-                                itemName = onSellItems.name,
-                                price = onSellItems.price,
-                                sold = onSellItems.sold,
-                                seller = onSellItems.seller,
-                                negotiable = onSellItems.negotiable,
-                                condition = onSellItems.condition,
-                                imgUrl = onSellItems.img,
-                            )
+            SearchView(textState, searchVm, search)
+        }
+        if (onSellVm.errorMessage.isEmpty() || searchVm.errorMessage.isEmpty()) {
+            Row {
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(0.dp, 0.dp, 0.dp, 60.dp)
+                ) {
+                    if (textState.value.text.isNotEmpty()) {
+                        items(searchVm.searchedSellItemsList) { onSellItems ->
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth(),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                BuyCardView(
+                                    itemName = onSellItems.name,
+                                    price = onSellItems.price,
+                                    sold = onSellItems.sold,
+                                    seller = onSellItems.seller,
+                                    negotiable = onSellItems.negotiable,
+                                    condition = onSellItems.condition,
+                                    imgUrl = onSellItems.img,
+                                )
+                            }
                         }
-                    }
-                } else if (textState.value.text.isEmpty()) {
-                    items(onSellVm.onSellItemsList) { onSellItems ->
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            BuyCardView(
-                                itemName = onSellItems.name,
-                                price = onSellItems.price,
-                                sold = onSellItems.sold,
-                                seller = onSellItems.seller,
-                                negotiable = onSellItems.negotiable,
-                                condition = onSellItems.condition,
-                                imgUrl = onSellItems.img,
-                            )
+                    } else if (textState.value.text.isEmpty()) {
+                        items(onSellVm.onSellItemsList) { onSellItems ->
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth(),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                BuyCardView(
+                                    itemName = onSellItems.name,
+                                    price = onSellItems.price,
+                                    sold = onSellItems.sold,
+                                    seller = onSellItems.seller,
+                                    negotiable = onSellItems.negotiable,
+                                    condition = onSellItems.condition,
+                                    imgUrl = onSellItems.img,
+                                )
+                            }
                         }
                     }
                 }
             }
+        } else {
+            Text(text = onSellVm.errorMessage + searchVm.errorMessage)
         }
-    }
-    else{
-        Text(text = onSellVm.errorMessage + searchVm.errorMessage)
     }
 
 }

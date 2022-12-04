@@ -21,7 +21,6 @@ fun BottomNavGraph(navController: NavHostController, onSellVm: OnSellViewModel, 
     ){
         composable(route = BottomBarScreen.BuyScreen.route){
             BuyScreen(onSellVm, searchVm)
-            BuyScreenPreview(onSellVm, searchVm)
         }
 
         composable(route = BottomBarScreen.SellScreen.route){
