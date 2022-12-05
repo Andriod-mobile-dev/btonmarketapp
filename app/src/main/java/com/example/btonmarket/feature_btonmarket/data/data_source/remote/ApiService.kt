@@ -18,6 +18,7 @@ data class onSellItem(
     var price : Float, // may be wrong
     var negotiable : Boolean,
     var sold: Boolean,
+    var categories: String,
     var img: String,
 )
 
@@ -39,6 +40,9 @@ interface ApiService{
 
     @GET("searchItem/{item}")
     suspend fun getSearchedItem(@Path("item") item: String): List<onSellItem>
+
+    @GET("category/{item}")
+    suspend fun getCategory(@Path("item") item: String): List<onSellItem>
 
     @Headers("Content-Type: application/json")
     @POST("onsale-create/")
