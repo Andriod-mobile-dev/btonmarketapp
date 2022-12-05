@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
+import com.example.btonmarket.feature_btonmarket.domain.model.SearchItemsViewModel
 import com.example.btonmarket.feature_btonmarket.domain.model.SellViewModel
 import com.example.btonmarket.feature_btonmarket.presentation.MainScreen
 import com.example.btonmarket.ui.theme.BtonmarketTheme
@@ -16,23 +17,28 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val vm = OnSellViewModel()
         val sellVm = SellViewModel()
+        val searchVm = SearchItemsViewModel()
         super.onCreate(savedInstanceState)
         setContent {
             BtonmarketTheme {
-                //Test(vm)
-                MainScreen(vm, sellVm)
+                //Test(vm,searchVm)
+                MainScreen(vm, sellVm, searchVm)
             }
         }
     }
 }
 
 @Composable
-fun Test(vm: OnSellViewModel){
-    LaunchedEffect(key1 = Unit, block = {
-        vm.getOnSellItemsList()
-    })
-
-    Log.d("Test items: ", vm.onSellItemsList.size.toString())
+fun Test(vm: OnSellViewModel, searchVm: SearchItemsViewModel){
+//    LaunchedEffect(key1 = Unit, block = {
+//        searchVm.searchItems("car")
+//    })
+    //Log.d("Search Debug", searchVm.searchedSellItemsList.size.toString())
+//    LaunchedEffect(key1 = Unit, block = {
+//        vm.getOnSellItemsList()
+//    })
+//
+//    Log.d("Test items: ", vm.onSellItemsList.size.toString())
 }
 
 

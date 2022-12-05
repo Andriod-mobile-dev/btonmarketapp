@@ -7,6 +7,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 data class onSellItem(
     //var userId: Int,
@@ -35,6 +36,9 @@ const val BASE_URL = "https://btonmarketapi.herokuapp.com/api/"
 interface ApiService{
     @GET("onsale-items")
     suspend fun getOnSellItems(): List<onSellItem>
+
+    @GET("searchItem/{item}")
+    suspend fun getSearchedItem(@Path("item") item: String): List<onSellItem>
 
     @Headers("Content-Type: application/json")
     @POST("onsale-create/")
