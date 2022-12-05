@@ -1,5 +1,6 @@
 package com.example.btonmarket.feature_btonmarket.presentation.categoriesDetail
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -19,7 +20,7 @@ import com.example.btonmarket.feature_btonmarket.presentation.buy.components.Buy
 import com.example.btonmarket.feature_btonmarket.presentation.sell.pageTitle
 
 @Composable
-fun CategoriesDetailScreenUI(searchVm: SearchItemsViewModel){
+fun CategoriesDetailScreenUI(searchVm: SearchItemsViewModel, categorypath:String="car"){
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -33,16 +34,17 @@ fun CategoriesDetailScreenUI(searchVm: SearchItemsViewModel){
                 pageTitle(title = "Tickets")
             }
             Row{
-                CategoryItems(searchVm)
+                CategoryItems(searchVm, categorypath)
             }
         }
     }
 }
 
 @Composable
-fun CategoryItems(searchVm: SearchItemsViewModel){
+fun CategoryItems(searchVm: SearchItemsViewModel, categorypath: String){
     LaunchedEffect(key1 = Unit, block = {
-        searchVm.searchItems("car")
+        Log.d("category path", categorypath)
+        searchVm.searchItems(categorypath)
     })
 
     LazyColumn(

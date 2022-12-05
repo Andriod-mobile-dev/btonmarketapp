@@ -43,7 +43,7 @@ fun BottomNavGraph(navController: NavHostController, onSellVm: OnSellViewModel, 
             })
         ){
             Log.d("Debug params", it.arguments?.getString(CATEGORY_DETAIL_ARG_KEY).toString())
-            CategoriesDetailScreenUI(searchVm)
+            CategoriesDetailScreenUI(searchVm, it.arguments?.getString(CATEGORY_DETAIL_ARG_KEY).toString())
         }
 
     }

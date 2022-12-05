@@ -35,7 +35,7 @@ fun CategoriesScreen(navController: NavController){
                 pageTitle(title = "Categories")
             }
             Row {
-                ToDetailCategory(navController, "eventtickets", "Event Tickets")
+                ToDetailCategory(navController, "car", "Event Tickets")
             }
             Row {
                 ToDetailCategory(navController, "eventtickets", "Home Equipments")
@@ -57,14 +57,16 @@ fun CategoriesScreen(navController: NavController){
 }
 
 @Composable
-fun ToDetailCategory(navController: NavController, path: String, label:String){
-    when (path){
-        "eventtickets" -> ToDetailCategoryButton(navController = navController, label = label)
-    }
+fun ToDetailCategory(navController: NavController, categoryname: String, label:String){
+    ToDetailCategoryButton(navController = navController, path=categoryname, label = label)
+//    when (path){
+//        "car" -> ToDetailCategoryButton(navController = navController, path=path, label = label)
+//        "eventtickets" -> ToDetailCategoryButton(navController = navController, path=path, label = label)
+//    }
 }
 
 @Composable
-fun ToDetailCategoryButton(navController: NavController, label:String){
+fun ToDetailCategoryButton(navController: NavController,path: String, label:String){
     Button(
         modifier = Modifier
             .fillMaxWidth()
@@ -72,7 +74,7 @@ fun ToDetailCategoryButton(navController: NavController, label:String){
             .padding(20.dp, 7.dp),
         onClick = {
             //BottomBarScreen.CategoriesDetailScreen.route+"/" + 1
-        navController.navigate(route = CATEGORY_DETAIL_PATH + "eventtickets")
+        navController.navigate(route = CATEGORY_DETAIL_PATH + path)
     }) {
         Text(text = label)
     }
