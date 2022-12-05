@@ -13,6 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.btonmarket.core.constants.CATEGORY_DETAIL_PATH
 import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.BottomBarScreen
 import com.example.btonmarket.feature_btonmarket.presentation.sell.pageTitle
 
@@ -71,7 +72,7 @@ fun ToDetailCategoryButton(navController: NavController, label:String){
             .padding(20.dp, 7.dp),
         onClick = {
             //BottomBarScreen.CategoriesDetailScreen.route+"/" + 1
-        navController.navigate(route = "categories-detail/" + 1)
+        navController.navigate(route = CATEGORY_DETAIL_PATH + "eventtickets")
     }) {
         Text(text = label)
     }

@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.btonmarket.core.constants.CATEGORY_DETAIL_ARG_KEY
 import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
 import com.example.btonmarket.feature_btonmarket.domain.model.SearchItemsViewModel
 import com.example.btonmarket.feature_btonmarket.domain.model.SellViewModel
@@ -37,11 +38,11 @@ fun BottomNavGraph(navController: NavHostController, onSellVm: OnSellViewModel, 
 
         composable(
             route = BottomBarScreen.CategoriesDetailScreen.route,
-            arguments = listOf(navArgument("id"){
-                type = NavType.IntType
+            arguments = listOf(navArgument(CATEGORY_DETAIL_ARG_KEY){
+                type = NavType.StringType
             })
         ){
-            Log.d("Debig params", it.arguments?.getInt("id").toString())
+            Log.d("Debug params", it.arguments?.getString(CATEGORY_DETAIL_ARG_KEY).toString())
             CategoriesDetailScreenUI(searchVm)
         }
 
