@@ -8,6 +8,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.btonmarket.core.constants.CATEGORY_DETAIL_ARG_KEY
+import com.example.btonmarket.feature_btonmarket.domain.model.CategoryViewModel
 import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
 import com.example.btonmarket.feature_btonmarket.domain.model.SearchItemsViewModel
 import com.example.btonmarket.feature_btonmarket.domain.model.SellViewModel
@@ -19,7 +20,12 @@ import com.example.btonmarket.feature_btonmarket.presentation.categoriesDetail.C
 import com.example.btonmarket.feature_btonmarket.presentation.sell.SellScreen
 
 @Composable
-fun BottomNavGraph(navController: NavHostController, onSellVm: OnSellViewModel, sellvm: SellViewModel,searchVm:SearchItemsViewModel){
+fun BottomNavGraph(navController: NavHostController,
+                   onSellVm: OnSellViewModel,
+                   sellvm: SellViewModel,
+                   searchVm:SearchItemsViewModel,
+                   categoryVm: CategoryViewModel,
+){
     NavHost(
         navController = navController,
         startDestination = BottomBarScreen.BuyScreen.route
@@ -43,7 +49,7 @@ fun BottomNavGraph(navController: NavHostController, onSellVm: OnSellViewModel, 
             })
         ){
             Log.d("Debug params", it.arguments?.getString(CATEGORY_DETAIL_ARG_KEY).toString())
-            CategoriesDetailScreenUI(searchVm, it.arguments?.getString(CATEGORY_DETAIL_ARG_KEY).toString())
+            CategoriesDetailScreenUI(categoryVm, it.arguments?.getString(CATEGORY_DETAIL_ARG_KEY).toString())
         }
 
     }

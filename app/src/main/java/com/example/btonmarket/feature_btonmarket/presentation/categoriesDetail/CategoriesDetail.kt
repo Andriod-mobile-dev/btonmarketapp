@@ -15,12 +15,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.btonmarket.feature_btonmarket.domain.model.CategoryViewModel
 import com.example.btonmarket.feature_btonmarket.domain.model.SearchItemsViewModel
 import com.example.btonmarket.feature_btonmarket.presentation.buy.components.BuyCardView
 import com.example.btonmarket.feature_btonmarket.presentation.sell.pageTitle
 
 @Composable
-fun CategoriesDetailScreenUI(searchVm: SearchItemsViewModel, categorypath:String="car"){
+fun CategoriesDetailScreenUI(categoryVm: CategoryViewModel, categorypath:String){
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -31,20 +32,20 @@ fun CategoriesDetailScreenUI(searchVm: SearchItemsViewModel, categorypath:String
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
-                pageTitle(title = "Tickets")
+                pageTitle(title = categorypath)
             }
             Row{
-                CategoryItems(searchVm, categorypath)
+                CategoryItems(categoryVm, categorypath)
             }
         }
     }
 }
 
 @Composable
-fun CategoryItems(searchVm: SearchItemsViewModel, categorypath: String){
+fun CategoryItems(categoryVm: CategoryViewModel, categorypath: String){
     LaunchedEffect(key1 = Unit, block = {
         Log.d("category path", categorypath)
-        searchVm.searchItems(categorypath)
+        categoryVm.searchItems(categorypath)
     })
 
     LazyColumn(
@@ -52,8 +53,8 @@ fun CategoryItems(searchVm: SearchItemsViewModel, categorypath: String){
             .fillMaxWidth()
             .padding(0.dp, 0.dp, 0.dp, 60.dp)
     ) {
-        if (searchVm.errorMessage.isEmpty()) {
-            items(searchVm.searchedSellItemsList) { onSellItems ->
+        if (categoryVm.errorMessage.isEmpty()) {
+            items(categoryVm.searchedSellItemsList) { onSellItems ->
                 Column(
                     modifier = Modifier
                         .fillMaxWidth(),

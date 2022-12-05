@@ -35,16 +35,16 @@ fun CategoriesScreen(navController: NavController){
                 pageTitle(title = "Categories")
             }
             Row {
-                ToDetailCategory(navController, "car", "Event Tickets")
+                ToDetailCategory(navController, "ticket", "Event Tickets")
             }
             Row {
-                ToDetailCategory(navController, "eventtickets", "Home Equipments")
+                ToDetailCategory(navController, "home equipment", "Home Equipments")
             }
             Row {
                 ToDetailCategory(navController, "eventtickets", "Services")
             }
             Row {
-                ToDetailCategory(navController, "eventtickets", "Vehicles")
+                ToDetailCategory(navController, "vehicle", "Vehicles")
             }
             Row {
                 ToDetailCategory(navController, "eventtickets", "Artifacts")
