@@ -11,6 +11,7 @@ import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.Botto
 import com.example.btonmarket.feature_btonmarket.presentation.categories.CategoriesScreen
 import com.example.btonmarket.feature_btonmarket.presentation.buy.BuyScreen
 import com.example.btonmarket.feature_btonmarket.presentation.buy.BuyScreenPreview
+import com.example.btonmarket.feature_btonmarket.presentation.categoriesDetail.CategoriesDetailScreenUI
 import com.example.btonmarket.feature_btonmarket.presentation.sell.SellScreen
 
 @Composable
@@ -28,7 +29,12 @@ fun BottomNavGraph(navController: NavHostController, onSellVm: OnSellViewModel, 
         }
 
         composable(route = BottomBarScreen.CategoriesScreen.route){
-            CategoriesScreen()
+            CategoriesScreen(navController)
         }
+
+        composable(route = BottomBarScreen.CategoriesDetailScreen.route){
+            CategoriesDetailScreenUI(searchVm)
+        }
+
     }
 }

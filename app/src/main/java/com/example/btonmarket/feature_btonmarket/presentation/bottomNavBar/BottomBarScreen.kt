@@ -20,6 +20,12 @@ sealed class BottomBarScreen(
         icon = Icons.Default.List
     )
 
+    object CategoriesDetailScreen: BottomBarScreen(
+        route = "categories-detail",
+        title = "Detail Category",
+        icon = Icons.Default.LocationOn
+    )
+
     object SellScreen : BottomBarScreen(
         route = "sell",
         title = "Sell",
