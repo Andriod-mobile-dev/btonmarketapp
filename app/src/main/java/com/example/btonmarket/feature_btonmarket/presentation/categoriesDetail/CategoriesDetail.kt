@@ -66,6 +66,7 @@ fun CategoryItems(searchVm: SearchItemsViewModel, categorypath: String){
                         seller = onSellItems.seller,
                         negotiable = onSellItems.negotiable,
                         condition = onSellItems.condition,
+                        category = onSellItems.categories,
                         imgUrl = onSellItems.img,
                     )
                 }

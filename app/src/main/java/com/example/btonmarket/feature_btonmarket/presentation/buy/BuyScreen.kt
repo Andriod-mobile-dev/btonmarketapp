@@ -56,6 +56,7 @@ fun BuyScreen(onSellVm: OnSellViewModel,searchVm:SearchItemsViewModel){
                                     seller = onSellItems.seller,
                                     negotiable = onSellItems.negotiable,
                                     condition = onSellItems.condition,
+                                    category = onSellItems.categories,
                                     imgUrl = onSellItems.img,
                                 )
                             }
@@ -74,6 +75,7 @@ fun BuyScreen(onSellVm: OnSellViewModel,searchVm:SearchItemsViewModel){
                                     seller = onSellItems.seller,
                                     negotiable = onSellItems.negotiable,
                                     condition = onSellItems.condition,
+                                    category = onSellItems.categories,
                                     imgUrl = onSellItems.img,
                                 )
                             }

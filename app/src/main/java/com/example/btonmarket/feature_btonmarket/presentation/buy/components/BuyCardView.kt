@@ -31,6 +31,7 @@ fun BuyCardView(itemName: String,
                 seller: String,
                 negotiable: Boolean,
                 condition: String,
+                category: String,
                 imgUrl: String,
 ) {
     Card(
@@ -63,7 +64,7 @@ fun BuyCardView(itemName: String,
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
-                ItemDetailColumn(itemName, price, condition, negotiable, sold)
+                ItemDetailColumn(itemName, price, condition, negotiable, category, sold)
                 SellerDetailColumn(seller)
             }
 
@@ -91,7 +92,7 @@ fun ItemAndSellStatus(itemName: String, sold: Boolean){
 }
 
 @Composable
-fun ItemDetailColumn(itemName: String, price: Float, condition: String, negotiable: Boolean, sold: Boolean){
+fun ItemDetailColumn(itemName: String, price: Float, condition: String, negotiable: Boolean, category: String, sold: Boolean){
     Column{
         //Text(text = itemName, fontWeight = FontWeight.W900, color = Color(0xFF4552B8))
         ItemAndSellStatus(itemName = itemName, sold = sold)
@@ -113,6 +114,7 @@ fun ItemDetailColumn(itemName: String, price: Float, condition: String, negotiab
 //            Text(stringResource(id = R.string.NEGOTIABLE))
             Text(text = stringResource(id = R.string.NON_NEGOTIABLE), fontWeight = FontWeight.Bold, color=Color.LightGray)
         }
+        Text(text = "Catagory: $category", fontWeight = FontWeight.Bold, color=Color.DarkGray)
 
     }
 }

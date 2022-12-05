@@ -18,6 +18,7 @@ data class onSellItem(
     var price : Float, // may be wrong
     var negotiable : Boolean,
     var sold: Boolean,
+    var categories: String,
     var img: String,
 )
 
