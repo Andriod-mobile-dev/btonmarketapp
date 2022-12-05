@@ -21,7 +21,7 @@ sealed class BottomBarScreen(
     )
 
     object CategoriesDetailScreen: BottomBarScreen(
-        route = "categories-detail",
+        route = "categories-detail/{id}",
         title = "Detail Category",
         icon = Icons.Default.LocationOn
     )

@@ -1,9 +1,12 @@
 package com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.components
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
 import com.example.btonmarket.feature_btonmarket.domain.model.SearchItemsViewModel
 import com.example.btonmarket.feature_btonmarket.domain.model.SellViewModel
@@ -32,7 +35,13 @@ fun BottomNavGraph(navController: NavHostController, onSellVm: OnSellViewModel, 
             CategoriesScreen(navController)
         }
 
-        composable(route = BottomBarScreen.CategoriesDetailScreen.route){
+        composable(
+            route = BottomBarScreen.CategoriesDetailScreen.route,
+            arguments = listOf(navArgument("id"){
+                type = NavType.IntType
+            })
+        ){
+            Log.d("Debig params", it.arguments?.getInt("id").toString())
             CategoriesDetailScreenUI(searchVm)
         }
 

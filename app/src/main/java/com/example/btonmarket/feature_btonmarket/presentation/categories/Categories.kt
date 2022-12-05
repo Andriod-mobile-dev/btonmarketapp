@@ -70,7 +70,8 @@ fun ToDetailCategoryButton(navController: NavController, label:String){
             .height(70.dp)
             .padding(20.dp, 7.dp),
         onClick = {
-        navController.navigate(route = BottomBarScreen.CategoriesDetailScreen.route)
+            //BottomBarScreen.CategoriesDetailScreen.route+"/" + 1
+        navController.navigate(route = "categories-detail/" + 1)
     }) {
         Text(text = label)
     }
