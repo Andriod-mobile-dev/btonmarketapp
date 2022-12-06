@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.btonmarket.core.constants.CATEGORY_DETAIL_PATH
+import com.example.btonmarket.core.constants.*
 import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.BottomBarScreen
 import com.example.btonmarket.feature_btonmarket.presentation.sell.pageTitle
 
@@ -35,22 +36,22 @@ fun CategoriesScreen(navController: NavController){
                 pageTitle(title = "Categories")
             }
             Row {
-                ToDetailCategory(navController, "ticket", "Event Tickets")
+                ToDetailCategory(navController, CATEGORY_NAME_EVENT_TICKET, CATEGORY_EVENT_TICKET_LABEL)
             }
             Row {
-                ToDetailCategory(navController, "home equipment", "Home Equipments")
+                ToDetailCategory(navController, CATEGORY_NAME_HOME, CATEGORY_HOME_LABEL)
             }
             Row {
-                ToDetailCategory(navController, "eventtickets", "Services")
+                ToDetailCategory(navController, CATEGORY_NAME_SERVICE, CATEGORY_SERVICE_LABEL)
             }
             Row {
-                ToDetailCategory(navController, "vehicle", "Vehicles")
+                ToDetailCategory(navController, CATEGORY_NAME_VEHICLE, CATEGORY_VEHICLE_LABEL)
             }
             Row {
-                ToDetailCategory(navController, "eventtickets", "Artifacts")
+                ToDetailCategory(navController, CATEGORY_NAME_ART, CATEGORY_ART_LABEL)
             }
             Row {
-                ToDetailCategory(navController, "eventtickets", "Education Materials")
+                ToDetailCategory(navController, CATEGORY_NAME_EDUCATION, CATEGORY_EDUCATION_LABEL)
             }
         }
     }
