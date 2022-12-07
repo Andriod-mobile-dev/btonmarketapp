@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
 import com.example.btonmarket.feature_btonmarket.domain.model.SearchItemsViewModel
 import com.example.btonmarket.feature_btonmarket.presentation.buy.components.BuyCardView
@@ -19,7 +20,7 @@ import com.example.btonmarket.feature_btonmarket.presentation.buy.components.Sea
 
 
 @Composable
-fun BuyScreen(onSellVm: OnSellViewModel,searchVm:SearchItemsViewModel){
+fun BuyScreen(onSellVm: OnSellViewModel,searchVm:SearchItemsViewModel, navController: NavController){
     // Test input here
     LaunchedEffect(key1 = Unit, block = {
         onSellVm.getOnSellItemsList()
@@ -58,6 +59,7 @@ fun BuyScreen(onSellVm: OnSellViewModel,searchVm:SearchItemsViewModel){
                                     condition = onSellItems.condition,
                                     category = onSellItems.categories,
                                     imgUrl = onSellItems.img,
+                                    navController = navController
                                 )
                             }
                         }
@@ -77,6 +79,7 @@ fun BuyScreen(onSellVm: OnSellViewModel,searchVm:SearchItemsViewModel){
                                     condition = onSellItems.condition,
                                     category = onSellItems.categories,
                                     imgUrl = onSellItems.img,
+                                    navController = navController
                                 )
                             }
                         }

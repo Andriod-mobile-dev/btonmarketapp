@@ -8,15 +8,13 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.btonmarket.core.constants.CATEGORY_DETAIL_ARG_KEY
-import com.example.btonmarket.feature_btonmarket.domain.model.CategoryViewModel
-import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
-import com.example.btonmarket.feature_btonmarket.domain.model.SearchItemsViewModel
-import com.example.btonmarket.feature_btonmarket.domain.model.SellViewModel
+import com.example.btonmarket.core.constants.ITEM_DETAIL_ARG_KEY
+import com.example.btonmarket.feature_btonmarket.domain.model.*
 import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.BottomBarScreen
 import com.example.btonmarket.feature_btonmarket.presentation.categories.CategoriesScreen
 import com.example.btonmarket.feature_btonmarket.presentation.buy.BuyScreen
-import com.example.btonmarket.feature_btonmarket.presentation.buy.BuyScreenPreview
 import com.example.btonmarket.feature_btonmarket.presentation.categoriesDetail.CategoriesDetailScreenUI
+import com.example.btonmarket.feature_btonmarket.presentation.itemDetailView.ItemDetailScreenUI
 import com.example.btonmarket.feature_btonmarket.presentation.sell.SellScreen
 
 @Composable
@@ -25,13 +23,14 @@ fun BottomNavGraph(navController: NavHostController,
                    sellvm: SellViewModel,
                    searchVm:SearchItemsViewModel,
                    categoryVm: CategoryViewModel,
+                   itemDetailVM: ItemDetailViewModel
 ){
     NavHost(
         navController = navController,
         startDestination = BottomBarScreen.BuyScreen.route
     ){
         composable(route = BottomBarScreen.BuyScreen.route){
-            BuyScreen(onSellVm, searchVm)
+            BuyScreen(onSellVm, searchVm, navController)
         }
 
         composable(route = BottomBarScreen.SellScreen.route){
@@ -43,13 +42,23 @@ fun BottomNavGraph(navController: NavHostController,
         }
 
         composable(
+            route = BottomBarScreen.ItemDetailScreen.route,
+            arguments = listOf(navArgument(ITEM_DETAIL_ARG_KEY){
+                type = NavType.IntType
+            })
+        ){
+            Log.d("item detail param:", it.arguments?.getInt(ITEM_DETAIL_ARG_KEY).toString())
+            ItemDetailScreenUI(itemDetailVM)
+        }
+
+        composable(
             route = BottomBarScreen.CategoriesDetailScreen.route,
             arguments = listOf(navArgument(CATEGORY_DETAIL_ARG_KEY){
                 type = NavType.StringType
             })
         ){
             Log.d("Debug params", it.arguments?.getString(CATEGORY_DETAIL_ARG_KEY).toString())
-            CategoriesDetailScreenUI(categoryVm, it.arguments?.getString(CATEGORY_DETAIL_ARG_KEY).toString())
+            CategoriesDetailScreenUI(categoryVm, it.arguments?.getString(CATEGORY_DETAIL_ARG_KEY).toString(), navController)
         }
 
     }

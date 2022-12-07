@@ -44,6 +44,9 @@ interface ApiService{
     @GET("category/{item}")
     suspend fun getCategory(@Path("item") item: String): List<onSellItem>
 
+    @GET("onsale-item-detail/{id}")
+    suspend fun getItemDetail(@Path("id") id: Int): onSellItem
+
     @Headers("Content-Type: application/json")
     @POST("onsale-create/")
     fun createOnSell(@Body dataModel: sellItem?): Call<sellItem?>?

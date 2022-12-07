@@ -16,6 +16,7 @@ import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.btonmarket.feature_btonmarket.domain.model.CategoryViewModel
 import com.example.btonmarket.feature_btonmarket.domain.model.SearchItemsViewModel
 import com.example.btonmarket.feature_btonmarket.presentation.buy.components.BuyCardView
@@ -23,7 +24,7 @@ import com.example.btonmarket.feature_btonmarket.presentation.sell.pageTitle
 import java.util.*
 
 @Composable
-fun CategoriesDetailScreenUI(categoryVm: CategoryViewModel, categorypath:String){
+fun CategoriesDetailScreenUI(categoryVm: CategoryViewModel, categorypath:String, navController: NavController){
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -43,7 +44,7 @@ fun CategoriesDetailScreenUI(categoryVm: CategoryViewModel, categorypath:String)
                 pageTitle(title = categorypath.uppercase())
             }
             Row{
-                CategoryItems(categoryVm, categorypath)
+                CategoryItems(categoryVm, categorypath, navController)
             }
         }
     }
@@ -55,7 +56,7 @@ fun NothingToShow(){
 }
 
 @Composable
-fun CategoryItems(categoryVm: CategoryViewModel, categorypath: String){
+fun CategoryItems(categoryVm: CategoryViewModel, categorypath: String, navController: NavController){
     LaunchedEffect(key1 = Unit, block = {
         Log.d("category path", categorypath)
         categoryVm.searchItems(categorypath)
@@ -86,6 +87,7 @@ fun CategoryItems(categoryVm: CategoryViewModel, categorypath: String){
                         condition = onSellItems.condition,
                         category = onSellItems.categories,
                         imgUrl = onSellItems.img,
+                        navController = navController
                     )
                 }
             }

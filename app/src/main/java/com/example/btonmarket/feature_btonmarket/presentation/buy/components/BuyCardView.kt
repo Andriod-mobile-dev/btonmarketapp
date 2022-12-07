@@ -20,8 +20,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 
 import com.example.btonmarket.R
+import com.example.btonmarket.core.constants.CATEGORY_DETAIL_PATH
+import com.example.btonmarket.core.constants.ITEM_DETAIL_PATH
 import com.example.btonmarket.core.presentation.components.ImageThumbnailFromURL
 
 @Composable
@@ -33,13 +37,17 @@ fun BuyCardView(itemName: String,
                 condition: String,
                 category: String,
                 imgUrl: String,
+                navController: NavController
 ) {
     Card(
         modifier = Modifier
             //.fillMaxWidth()
             .width(340.dp)
             .padding(10.dp)
-            .clickable { },
+            .clickable {
+                //Todo: navigation here
+                navController.navigate(route = ITEM_DETAIL_PATH)
+            },
         border = BorderStroke(1.dp, Color.Blue),
         elevation = 10.dp
     ) {

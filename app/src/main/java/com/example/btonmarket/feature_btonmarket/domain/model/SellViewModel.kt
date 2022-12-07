@@ -18,7 +18,6 @@ class SellViewModel: ViewModel() {
     var sellErrorMessage: String by mutableStateOf("")
 
     fun postSellItem(item: sellItem){
-        //Todo: debbugging stopped here!
         viewModelScope.launch {
             val apiService = ApiService.getInstance()
             val call: Call<sellItem?>? = apiService.createOnSell(item)

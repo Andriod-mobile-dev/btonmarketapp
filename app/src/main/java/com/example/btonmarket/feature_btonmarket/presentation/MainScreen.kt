@@ -8,10 +8,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.rememberNavController
 import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.components.BottomNavGraph
 import  com.example.btonmarket.R
-import com.example.btonmarket.feature_btonmarket.domain.model.CategoryViewModel
-import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
-import com.example.btonmarket.feature_btonmarket.domain.model.SearchItemsViewModel
-import com.example.btonmarket.feature_btonmarket.domain.model.SellViewModel
+import com.example.btonmarket.feature_btonmarket.domain.model.*
 import com.example.btonmarket.feature_btonmarket.presentation.bottomNavBar.components.BottomBar
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -20,6 +17,7 @@ fun MainScreen(onSellVm: OnSellViewModel,
                sellVm: SellViewModel,
                searchVm:SearchItemsViewModel,
                categoryVm: CategoryViewModel,
+               itemDetailVM: ItemDetailViewModel
 ){
     val navController = rememberNavController()
 
@@ -27,7 +25,7 @@ fun MainScreen(onSellVm: OnSellViewModel,
         topBar = { TopBar() },
         bottomBar = {  BottomBar(navController = navController) }
     ) {
-        BottomNavGraph(navController = navController, onSellVm, sellVm, searchVm,categoryVm)
+        BottomNavGraph(navController = navController, onSellVm, sellVm, searchVm,categoryVm, itemDetailVM)
     }
 }
 

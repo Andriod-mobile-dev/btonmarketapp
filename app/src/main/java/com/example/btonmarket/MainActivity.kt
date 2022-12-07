@@ -7,10 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.btonmarket.feature_btonmarket.domain.model.CategoryViewModel
-import com.example.btonmarket.feature_btonmarket.domain.model.OnSellViewModel
-import com.example.btonmarket.feature_btonmarket.domain.model.SearchItemsViewModel
-import com.example.btonmarket.feature_btonmarket.domain.model.SellViewModel
+import com.example.btonmarket.feature_btonmarket.domain.model.*
 import com.example.btonmarket.feature_btonmarket.presentation.MainScreen
 import com.example.btonmarket.ui.theme.BtonmarketTheme
 
@@ -20,11 +17,12 @@ class MainActivity : ComponentActivity() {
         val sellVm = SellViewModel()
         val searchVm = SearchItemsViewModel()
         val categoryVm = CategoryViewModel()
+        val itemDetailVm = ItemDetailViewModel()
         super.onCreate(savedInstanceState)
         setContent {
             BtonmarketTheme {
                 //Test(vm,searchVm)
-                MainScreen(vm, sellVm, searchVm, categoryVm)
+                MainScreen(vm, sellVm, searchVm, categoryVm, itemDetailVm)
             }
         }
     }

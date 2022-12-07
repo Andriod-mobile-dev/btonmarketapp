@@ -14,3 +14,6 @@ const val CATEGORY_ART_LABEL = "Art"
 const val CATEGORY_NAME_ART = "art"
 const val CATEGORY_EDUCATION_LABEL = "Education Materials"
 const val CATEGORY_NAME_EDUCATION = "education"
+
+const val ITEM_DETAIL_ARG_KEY = "itemID"
+const val ITEM_DETAIL_PATH = "item-detail/1"
