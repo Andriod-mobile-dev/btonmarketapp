@@ -87,6 +87,7 @@ fun CategoryItems(categoryVm: CategoryViewModel, categorypath: String, navContro
                         condition = onSellItems.condition,
                         category = onSellItems.categories,
                         imgUrl = onSellItems.img,
+                        itemid=onSellItems.id,
                         navController = navController
                     )
                 }

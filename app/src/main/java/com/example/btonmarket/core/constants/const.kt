@@ -16,4 +16,4 @@ const val CATEGORY_EDUCATION_LABEL = "Education Materials"
 const val CATEGORY_NAME_EDUCATION = "education"
 
 const val ITEM_DETAIL_ARG_KEY = "itemID"
-const val ITEM_DETAIL_PATH = "item-detail/1"
+const val ITEM_DETAIL_PATH = "item-detail/"

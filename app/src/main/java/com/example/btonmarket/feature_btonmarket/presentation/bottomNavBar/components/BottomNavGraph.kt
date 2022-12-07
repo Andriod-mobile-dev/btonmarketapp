@@ -48,7 +48,7 @@ fun BottomNavGraph(navController: NavHostController,
             })
         ){
             Log.d("item detail param:", it.arguments?.getInt(ITEM_DETAIL_ARG_KEY).toString())
-            ItemDetailScreenUI(itemDetailVM)
+            ItemDetailScreenUI(it.arguments?.getInt(ITEM_DETAIL_ARG_KEY)!!,itemDetailVM)
         }
 
         composable(

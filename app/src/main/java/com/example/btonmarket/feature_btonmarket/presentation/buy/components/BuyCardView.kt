@@ -37,6 +37,7 @@ fun BuyCardView(itemName: String,
                 condition: String,
                 category: String,
                 imgUrl: String,
+                itemid: Int,
                 navController: NavController
 ) {
     Card(
@@ -46,7 +47,7 @@ fun BuyCardView(itemName: String,
             .padding(10.dp)
             .clickable {
                 //Todo: navigation here
-                navController.navigate(route = ITEM_DETAIL_PATH)
+                navController.navigate(route = ITEM_DETAIL_PATH + itemid)
             },
         border = BorderStroke(1.dp, Color.Blue),
         elevation = 10.dp

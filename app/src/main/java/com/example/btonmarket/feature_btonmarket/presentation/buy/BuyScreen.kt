@@ -59,6 +59,7 @@ fun BuyScreen(onSellVm: OnSellViewModel,searchVm:SearchItemsViewModel, navContro
                                     condition = onSellItems.condition,
                                     category = onSellItems.categories,
                                     imgUrl = onSellItems.img,
+                                    itemid = onSellItems.id,
                                     navController = navController
                                 )
                             }
@@ -79,6 +80,7 @@ fun BuyScreen(onSellVm: OnSellViewModel,searchVm:SearchItemsViewModel, navContro
                                     condition = onSellItems.condition,
                                     category = onSellItems.categories,
                                     imgUrl = onSellItems.img,
+                                    itemid = onSellItems.id,
                                     navController = navController
                                 )
                             }
