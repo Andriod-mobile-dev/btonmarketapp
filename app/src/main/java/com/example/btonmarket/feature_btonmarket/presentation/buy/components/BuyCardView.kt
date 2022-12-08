@@ -26,6 +26,7 @@ import androidx.navigation.NavHostController
 import com.example.btonmarket.R
 import com.example.btonmarket.core.constants.CATEGORY_DETAIL_PATH
 import com.example.btonmarket.core.constants.ITEM_DETAIL_PATH
+import com.example.btonmarket.core.presentation.components.GetItemSmallButton
 import com.example.btonmarket.core.presentation.components.ImageThumbnailFromURL
 
 @Composable
@@ -60,7 +61,9 @@ fun BuyCardView(itemName: String,
             //horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth().padding(0.dp, 20.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(0.dp, 20.dp),
                 horizontalArrangement = Arrangement.Center
             ) {
                 //ImageThumbnail()
@@ -140,11 +143,12 @@ fun SellerDetailColumn(seller: String){
                 }
             }
         )
-        Button(onClick = { /*TODO*/ }) {
-            // cart icon goes here
-            Text(text = "GET", fontWeight = FontWeight.Bold)
-            Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = "Shopping cart icon", modifier = Modifier.size(12.dp))
-        }
+        GetItemSmallButton(name = "GET")
+//        Button(onClick = { /*TODO*/ }) {
+//            // cart icon goes here
+//            Text(text = "GET", fontWeight = FontWeight.Bold)
+//            Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = "Shopping cart icon", modifier = Modifier.size(12.dp))
+//        }
     }
 }
 
